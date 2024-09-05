@@ -12,5 +12,39 @@
 }
 
 .btn-custom:hover {
-	background-color: #f5f5f5 !important;
+	background-color: #b37676 !important;
 }
+
+.f-item p {
+	text-align: justify;
+}
+
+div.big-deal-area .container-fluid {
+	--bs-gutter-x: 0rem !important;
+}
+
+.black-white-btn {
+	background-color: #000; /* Black background */
+	color: #fff; /* White text */
+	border: 2px solid #000; /* Optional border, adjust as needed */
+	padding: 10px 20px;
+	text-transform: uppercase; /* Optional, makes text uppercase */
+	display: inline-block;
+	text-align: center;
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.black-white-btn:hover {
+	background-color: #fff; /* White background on hover */
+	color: #fff; /* Black text on hover */
+	border-color: #000; /* Keeps the border black */
+}
+
+.btn.btn-theme {
+	background: #fff !important;
+	color: #000 !important;
+}
+.btn.btn-theme:hover {
+	background: #eabf33 !important;
+}
+

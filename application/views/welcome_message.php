@@ -1,23 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
-<!-- Mirrored from validthemes.net/site-template/restan/index-3.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 20 Aug 2024 08:51:11 GMT -->
-
 <head>
-	<!-- ========== Meta Tags ========== -->
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Restan - Food & Restaurant HTML Template ">
-
-	<!-- ========== Page Title ========== -->
+	<meta name="description" content=" ">
 	<title>Madras Mania </title>
-
-	<!-- ========== Favicon Icon ========== -->
-	<link rel="shortcut icon" href="assets/img/mm.png" type="image/x-icon">
-
-	<!-- ========== Start Stylesheet ========== -->
+	<!-- <link rel="shortcut icon" href="assets/img/mm.png" type="image/x-icon"> -->
 	<link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet">
 	<link href="<?php echo base_url(); ?>assets/css/font-awesome.min.css" rel="stylesheet">
 	<link href="<?php echo base_url(); ?>assets/css/magnific-popup.css" rel="stylesheet">
@@ -30,19 +19,10 @@
 	<link href="<?php echo base_url(); ?>assets/css/unit-test.css" rel="stylesheet">
 	<link href="<?php echo base_url(); ?>assets/css/shop.css" rel="stylesheet">
 	<link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet">
-	<link href="<?php echo base_url(); ?>style.css" rel="stylesheet">
+	<link href="<?php echo base_url(); ?>assets/style.css" rel="stylesheet">
 	<link href="<?php echo base_url(); ?>assets/css/custom.css" rel="stylesheet">
-	<!-- ========== End Stylesheet ========== -->
-
-	<!--[if lte IE 9]>
-		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-	<![endif]-->
-
 </head>
-
 <body>
-
-
 	<div class="top-bar-area top-bar-style-one bg-theme text-light bg-transparent">
 		<div class="container">
 			<div class="row align-center">
@@ -61,26 +41,15 @@
 					</ul>
 				</div>
 				<div class="col-lg-5 text-end">
-					<p>
-						<i class="fas fa-map-marker-alt"></i> Herrenwiesenstraße 2/1, 69126 Heidelberg, Germany
-					</p>
+					<a href="https://maps.app.goo.gl/tV3e3ALnAz6gvCD48">Herrenwiesenstraße
+						2/1, 69126 Heidelberg, Germany</a>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- End Header Top -->
-
-	<!-- Header 
-	============================================= -->
 	<header>
-		<!-- Start Navigation -->
 		<nav class="navbar mobile-sidenav dark-layout brand-center navbar-default validnavs">
-
-
 			<div class="container">
-
-
-				<!-- Start Header Navigation -->
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
 						<i class="fa fa-bars"></i>
@@ -90,16 +59,11 @@
 						<img src="<?php echo base_url(); ?>assets/img/mm.png" class="logo logo-scrolled" alt="Logo">
 					</a>
 				</div>
-				<!-- End Header Navigation -->
-
-				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="navbar-menu">
-
 					<img src="assets/img/mm.png" alt="Logo">
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
 						<i class="fa fa-times"></i>
 					</button>
-
 					<ul class="nav navbar-nav navbar-center" data-in="fadeInDown" data-out="fadeOutUp">
 						<li class="dropdown megamenu-fw">
 							<a href="<?php echo base_url(); ?>" class="dropdown-toggle" data-toggle="dropdown">Home</a>
@@ -111,31 +75,28 @@
 								<li><a href="<?php echo base_url(); ?>aboutus">Brand Story</a></li>
 							</ul>
 						</li>
-						<li>
-							<a href="<?php echo base_url(); ?>menu" class="" data-toggle="dropdown">Menu</a>
+						<li class="dropdown">
+							<a href="<?php echo base_url(); ?>menu" class="dropdown-toggle"
+								data-toggle="dropdown">Menu</a>
 						</li>
 						<li>
-							<a href="<?php echo base_url(); ?>" class="" data-toggle="dropdown">Gallery</a>
+							<a href="<?php echo base_url(); ?>gallery" class="" data-toggle="dropdown">Gallery</a>
 						</li>
 						<li>
 							<a href="<?php echo base_url(); ?>contact" class="" data-toggle="dropdown">Contact Us</a>
 						</li>
-						<li class="button">
-							<a href="<?php echo base_url(); ?>contact" class="btn-custom">Reservation</a>
+						<li>
+							<div class="button mt-30">
+								<a class="btn btn-md btn-theme animation"
+									href="<?php echo base_url(); ?>contact">Resevation</a>
+							</div>
 						</li>
-
-
 					</ul>
-				</div><!-- /.navbar-collapse -->
+				</div>
 				<div class="overlay-screen"></div>
-
 			</div>
-
 		</nav>
-		<!-- End Navigation -->
-
 	</header>
-
 
 	<?php $this->load->view($viewpage); ?>
 
@@ -151,7 +112,7 @@
 					<div class="row">
 						<div class="col-lg-12">
 							<a href="#"><img src="<?php echo base_url(); ?>assets/img/mm.png" alt="Logo"
-									style="height:100px;width:100px;"></a>
+									style="height:120px;width:120px;"></a>
 						</div>
 					</div>
 				</div>
@@ -203,19 +164,19 @@
 							<h4 class="widget-title">Explore</h4>
 							<ul>
 								<li>
-									<a href="<?php echo base_url(); ?>">Home</a>
+									<a href="<?php echo base_url(); ?>index">Home</a>
 								</li>
 								<li>
-									<a href="<?php echo base_url(); ?>">About us</a>
+									<a href="<?php echo base_url(); ?>aboutus">About us</a>
 								</li>
 								<li>
-									<a href="<?php echo base_url(); ?>">Menu</a>
+									<a href="<?php echo base_url(); ?>menu">Menu</a>
 								</li>
 								<li>
-									<a href="<?php echo base_url(); ?>">Gallery</a>
+									<a href="<?php echo base_url(); ?>gallery">Gallery</a>
 								</li>
 								<li>
-									<a href="<?php echo base_url(); ?>">Resevation</a>
+									<a href="<?php echo base_url(); ?>contact">Resevation</a>
 								</li>
 							</ul>
 						</div>
@@ -232,7 +193,8 @@
 										<i class="fas fa-map-marker-alt"></i>
 									</div>
 									<div class="content">
-										Herrenwiesenstraße 2/1, 69126 Heidelberg, Germany
+										<a href="https://maps.app.goo.gl/tV3e3ALnAz6gvCD48">Herrenwiesenstraße
+											2/1, 69126 Heidelberg, Germany</a>
 									</div>
 								</li>
 								<li>
@@ -241,7 +203,7 @@
 									</div>
 									<div class="content">
 										<a href="tel:017622612355">017622612355</a> <br> <a
-											href="tel:2151234567">017622612355
+											href="tel:017622612355">017622612355
 
 										</a>
 									</div>
@@ -262,7 +224,7 @@
 					<!-- Singel Item -->
 					<div class="col-lg-3 col-md-6 footer-item mt-50">
 						<h4 class="widget-title">Online ordering</h4>
-						<img src="assets/images/order.png">
+						<img src="assets/img/order.png">
 					</div>
 					<!-- End Singel Item -->
 
@@ -284,13 +246,13 @@
 					<div class="col-lg-6 text-end">
 						<ul>
 							<li>
-								<a href="about-us.html">Terms</a>
+								<a href="<?php echo base_url(); ?>">Terms</a>
 							</li>
 							<li>
-								<a href="about-us.html">Privacy</a>
+								<a href="<?php echo base_url(); ?>">Privacy</a>
 							</li>
 							<li>
-								<a href="contact-us.html">Support</a>
+								<a href="<?php echo base_url(); ?>">Support</a>
 							</li>
 						</ul>
 					</div>
@@ -300,10 +262,6 @@
 		<!-- End Footer Bottom -->
 
 	</footer>
-
-
-
-
 	<script src="<?php echo base_url(); ?>assets/js/jquery-3.6.0.min.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/bootstrap.bundle.min.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/jquery.appear.js"></script>
@@ -321,10 +279,5 @@
 	<script src="<?php echo base_url(); ?>assets/js/ScrollTrigger.min.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/bootstrap-datepicker.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/main.js"></script>
-
-
-
-
 </body>
-
 </html>

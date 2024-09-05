@@ -557,7 +557,7 @@ p {
 .heading {
 	font-weight: 600;
 	margin-bottom: 25px;
-	margin-top: -5px;
+	margin-top: 10px;
 	font-size: 42px;
 	line-height: 1.3;
 }
@@ -1326,7 +1326,7 @@ p {
 	font-size: 16px;
 	letter-spacing: 0;
 	padding: 13px 30px;
-	background: #e7edf8;
+	background: #7f060f;
 	position: relative;
 	z-index: 1;
 }
@@ -1540,6 +1540,7 @@ p {
 	border: none;
 	background: #eabf33;
 }
+
 .color-style-two .btn.btn-theme {
 	background: var(--color-secondary);
 }
@@ -1556,7 +1557,7 @@ p {
 	height: 150px;
 	width: 115%;
 	z-index: -1;
-	background-color: var(--dark);
+	/* background-color: var(--dark); */
 	-webkit-transition: all 0.25s ease-in-out;
 	transition: all 0.25s ease-in-out;
 	-webkit-transform: translateY(-45%) skew(25deg) scale(0);
@@ -1569,7 +1570,7 @@ p {
 	color: var(--color-heading);
 }
 .text-light .btn.btn-theme:hover {
-	color: var(--color-heading);
+	color: var(--color-optional);
 }
 .text-light .btn.btn-theme:after {
 	background: var(--white);
@@ -1658,7 +1659,7 @@ button i {
 	height: 150px;
 	width: 115%;
 	z-index: -1;
-	background-color: var(--dark);
+	/* background-color: var(--dark); */
 	-webkit-transition: all 0.25s ease-in-out;
 	transition: all 0.25s ease-in-out;
 	-webkit-transform: translateY(-45%) skew(25deg) scale(0);
@@ -4384,7 +4385,7 @@ ul.meal-items li .content .top {
 }
 ul.meal-items {
 	display: grid;
-	grid-row-gap: 30px;
+	grid-row-gap: 20px;
 }
 .food-menus-item .title,
 .food-menu-items .title,
@@ -4414,6 +4415,7 @@ ul.meal-items li .content .bottom .right {
 ul.meal-items li .content .bottom p {
 	margin: 0;
 	text-transform: capitalize;
+	font-size: 10px;
 }
 ul.meal-items li .content .top .price {
 	font-size: 24px;
@@ -4458,9 +4460,9 @@ ul.meal-items li .content .top::before {
 ul.meal-items li .content .top .price span:first-child {
 	margin-left: 20px;
 }
+/* General styles for the discount badge */
 .discount-badge {
 	position: absolute;
-	right: -98px;
 	top: 80px;
 	height: 200px;
 	width: 200px;
@@ -4469,7 +4471,7 @@ ul.meal-items li .content .top .price span:first-child {
 	text-align: center;
 	display: flex;
 	flex-direction: column;
-	font-size: 24px;
+	font-size: 22px;
 	font-family: var(--font-heading);
 	line-height: 1.2;
 	justify-content: center;
@@ -4518,6 +4520,19 @@ ul.meal-items li .content .top .price span:first-child {
 		10.35898% 21.33975%
 	);
 }
+
+/* Position the badge on the right side for even-numbered items */
+.food-menus-item:nth-child(2n) .discount-badge {
+	right: 375px;
+	left: auto;
+}
+
+/* Position the badge on the left side for odd-numbered items */
+.food-menus-item:nth-child(2n + 1) .discount-badge {
+	left: 375px;
+	right: auto;
+}
+
 .color-style-two .discount-badge {
 	background: var(--color-secondary);
 }
@@ -4631,6 +4646,7 @@ ul.meal-items li .content .top .price span:first-child {
 }
 .food-menus-item ul.meal-items li .content .bottom p {
 	color: var(--color-paragraph);
+	font-size: 10px;
 }
 .food-menus-item:nth-child(2n) .info {
 	padding-left: 0;
@@ -4654,8 +4670,8 @@ ul.meal-items li .content .top .price span:first-child {
 	overflow: inherit;
 }
 .nav.nav-tabs.food-menu-nav.style-three button.active {
-	background: transparent;
-	color: #eabf33;
+	/* background: transparent; */
+	color: #fff !important;
 }
 .nav.nav-tabs.food-menu-nav.style-three button::before {
 	position: absolute;
@@ -4692,7 +4708,7 @@ ul.meal-items li .content .top .price span:first-child {
 	border: 1px solid #dddddd;
 	padding: 20px;
 	border-top: none;
-	padding-top: 0px;
+	padding-top: 5%;
 	border-radius: 0 0 20px 20px;
 }
 .food-menu-style-three {
@@ -4819,15 +4835,15 @@ ul.meal-items li .content .top .price span:first-child {
 	display: none;
 }
 .nav.nav-tabs.food-menu-nav.style-three.four button.active {
-	color: var(--color-secondary);
+	color: #7f060f;
 }
 .nav.nav-tabs.food-menu-nav.style-three.four {
 	padding: 0;
 	border: none;
 }
-.nav.nav-tabs.food-menu-nav.style-three.four button {
+/* .nav.nav-tabs.food-menu-nav.style-three.four button {
 	padding: 0 45px;
-}
+} */
 .food-style-four-content .food-menus-item ul.meal-items li .content .top h4 {
 	font-size: 20px;
 }
@@ -4849,7 +4865,7 @@ ul.meal-items li .content .top .price span:first-child {
 	.top
 	.price {
 	font-size: 20px;
-	color: var(--color-secondary);
+	color: #7f060f;
 }
 .food-style-four-content
 	.food-menus-item
@@ -5983,10 +5999,9 @@ button.mfp-prevent-close {
 	font-weight: 500;
 }
 .deal-style-one-items {
-	padding: 120px;
+	padding: 50px;
 	background-size: cover;
 	background-position: bottom center;
-	border-radius: 30px;
 }
 .deal-thumb {
 	position: relative;
@@ -7331,6 +7346,7 @@ ul.footer-social li a {
 	text-align: center;
 	margin-right: 8px;
 	margin-top: 10px;
+	border-radius: 5px;
 	color: var(--white);
 }
 ul.footer-social li a:hover {
@@ -7939,7 +7955,7 @@ ul.footer-social li a:hover {
 	background: var(--dark);
 }
 .bg-dark .btn.btn-theme:hover {
-	color: var(--color-heading);
+	color: var(--color-optional);
 }
 .bg-dark .menu-type-item .btn.btn-theme:hover {
 	color: var(--white);
@@ -8482,9 +8498,9 @@ ul.footer-social li a:hover {
 	.menu-type-area {
 		padding-top: 70px;
 	}
-	.nav.nav-tabs.food-menu-nav.style-three.four button {
+	/* .nav.nav-tabs.food-menu-nav.style-three.four button {
 		padding: 0 35px;
-	}
+	} */
 	.food-menu-style-four-items .animate-up-down {
 		max-width: 100px;
 		right: -32px;
@@ -9010,7 +9026,7 @@ ul.footer-social li a:hover {
 		width: 100%;
 	}
 	.nav.nav-tabs.food-menu-nav.style-three.four button.active {
-		border-color: var(--color-secondary);
+		border-color: #7f060f;
 	}
 	.nav.nav-tabs.food-menu-nav.style-three.four {
 		margin-bottom: 30px;

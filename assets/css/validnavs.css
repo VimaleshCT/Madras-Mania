@@ -1235,7 +1235,15 @@ nav.validnavs.brand-center .navbar-brand svg {
 		border: 1px solid transparent;
 		border-radius: 5px;
 		box-shadow: var(--box-shadow-extra);
-		padding: 20px;
+		padding: 10px;
+		width: 300px;
+	}
+	nav.navbar.validnavs li.dropdown ul.dropdown-menu:hover {
+		background: var(--white) none repeat scroll 0 0;
+		border: 1px solid transparent;
+		border-radius: 5px;
+		box-shadow: var(--box-shadow-extra);
+		padding: 10px;
 		width: 300px;
 	}
 	nav.navbar.validnavs li.dropdown ul.dropdown-menu.cart-list {
@@ -1255,7 +1263,7 @@ nav.validnavs.brand-center .navbar-brand svg {
 		background-color: transparent;
 	}
 	nav.navbar.validnavs li.dropdown ul.dropdown-menu > li > a {
-		padding: 12px 15px;
+		/* padding: 12px 15px; */
 		color: var(--dark);
 		font-weight: 600;
 		font-size: 16px;
@@ -1269,7 +1277,7 @@ nav.validnavs.brand-center .navbar-brand svg {
 		display: block;
 		font-size: 16px;
 		margin-bottom: 0;
-		padding: 7px 15px !important;
+		/* padding: 7px 15px !important; */
 		text-align: left;
 		text-transform: capitalize;
 		width: 100%;
@@ -1723,7 +1731,7 @@ nav.validnavs.brand-center .navbar-brand svg {
 		margin-bottom: 0;
 	}
 	nav.validnavs.navbar-sidebar ul.nav li.dropdown ul.dropdown-menu li a {
-		padding: 7px 15px;
+		/* padding: 7px 15px; */
 		color: var(--dark);
 		border: none;
 	}
@@ -1899,7 +1907,7 @@ nav.validnavs.brand-center .navbar-brand svg {
 	nav.validnavs.brand-center .navbar-brand {
 		position: relative;
 		z-index: 1;
-		padding: 17px 30px;
+		padding: 12px 20px;
 	}
 }
 @media (min-width: 1024px) {

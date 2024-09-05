@@ -26,7 +26,7 @@
                         <li class="wow fadeInUp" data-wow-delay="300ms"
                             style="visibility: visible; animation-delay: 300ms; animation-name: fadeInUp;">
                             <div class="icon">
-                                <img src="assets/img/icon/loc.png" alt="Icon">
+                                <img src="assets/img/icon/l.png" alt="Icon">
                             </div>
                             <div class="info">
                                 <h5 class="title">Our Location</h5>
@@ -37,7 +37,7 @@
                         </li>
                         <li class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
                             <div class="icon">
-                                <img src="assets/img/icon/book.png" alt="Icon">
+                                <img src="assets/img/icon/c.png" alt="Icon">
                             </div>
                             <div class="content">
                                 <h5 class="title">Bookings</h5>
@@ -47,7 +47,7 @@
                         <li class="wow fadeInUp" data-wow-delay="500ms"
                             style="visibility: visible; animation-delay: 500ms; animation-name: fadeInUp;">
                             <div class="icon">
-                                <img src="assets/img/icon/mail.png" alt="Icon">
+                                <img src="assets/img/icon/m.png" alt="Icon">
                             </div>
                             <div class="info">
                                 <h5 class="title">Official Email</h5>
@@ -136,7 +136,7 @@
                     <div class="opening-hours-thumb video-bg-live">
                         <img src="assets/img/banner/7.jpg" alt="Image Not Found">
                         <div class="player"
-                            data-property="{videoURL:'0Fs-4GiNxQ8',containment:'.video-bg-live', showControls:false, autoPlay:true, zoom:0, loop:true, mute:true, startAt:654, opacity:1, quality:'default'}">
+                            data-property="{videoURL:'NC9KlaxtfLg',containment:'.video-bg-live', showControls:false, autoPlay:true, zoom:0, loop:true, mute:true, startAt:654, opacity:1, quality:'default'}">
                         </div>
                     </div>
                 </div>

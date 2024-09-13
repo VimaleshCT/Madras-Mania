@@ -678,7 +678,6 @@ progress {
 .container-sm,
 .container-xl,
 .container-xxl {
-	--bs-gutter-x: 1.5rem;
 	--bs-gutter-y: 0;
 	width: 100%;
 	padding-right: calc(var(--bs-gutter-x) * 0.5);
@@ -713,7 +712,7 @@ progress {
 	.container-md,
 	.container-sm,
 	.container-xl {
-		max-width: 1140px;
+		max-width: 1195px;
 	}
 }
 @media (min-width: 1400px) {
@@ -4316,7 +4315,6 @@ fieldset:disabled .btn {
 }
 .card-body {
 	flex: 1 1 auto;
-	padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
 	color: var(--bs-card-color);
 }
 .card-title {
@@ -9488,9 +9486,7 @@ fieldset:disabled .btn {
 	.d-md-table-cell {
 		display: table-cell !important;
 	}
-	.d-md-flex {
-		display: flex !important;
-	}
+
 	.d-md-inline-flex {
 		display: inline-flex !important;
 	}

@@ -513,3 +513,165 @@
         </div>
     </div>
 </div>
+
+
+<!-- Section for Selecting Days and Meals -->
+<div class="day-meal-selection-area default-padding bg-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="site-heading text-center">
+                    <h4 style="color: #eabf33;">Buffet Menu</h4>
+                    <h2 class="title">Explore our Menu by Day & Meal</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day Selection -->
+        <div class="row justify-content-center" id="day-tabs">
+            <?php foreach ($days as $day): ?>
+                <div class="col-lg-3 col-md-4 col-sm-6 my-2">
+                    <div class="day-card" onclick="openMeals('<?php echo $day; ?>')">
+                        <div class="card border-0 hover-card">
+                            <!-- Dynamically generated image path based on day -->
+                            <img src="assets/img/day/<?php echo strtolower($day); ?>.jpg" alt="<?php echo $day; ?>"
+                                class="card-img-top">
+                            <div class="card-body text-center">
+                                <h5 class="card-title"><?php echo $day; ?></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+
+        <!-- Meal Selection (Initially hidden) -->
+        <div id="meal-selection" class="row text-center" style="display: none;">
+            <h4 style="color: #eabf33;">Select a Meal</h4>
+            <div class="col-lg-12 text-center">
+                <div class="row justify-content-center" id="meal-tabs">
+                    <!-- Meals will be dynamically loaded here via AJAX -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Product List (Initially hidden) -->
+        <div id="product-list-section" class="row text-center" style="display: none;">
+            <h4 style="color: #eabf33;">Available Products</h4>
+            <div class="col-lg-12 text-center">
+                <div class="row" id="product-list">
+                    <!-- Products will be dynamically loaded here via AJAX -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var selectedDay = '';
+
+    // Function to clear previous meals and products when switching days
+    function clearPreviousSelections() {
+        // Clear previous meal options
+        $('#meal-tabs').html('');
+        document.getElementById('meal-selection').style.display = 'none';  // Hide the meal selection section
+
+        // Clear previous product list
+        $('#product-list').html('');
+        document.getElementById('product-list-section').style.display = 'none';  // Hide the product list section
+    }
+
+    // Fetch meals for the selected day
+    function openMeals(day) {
+        selectedDay = day;
+        clearPreviousSelections();  // Clear previous selections
+
+        // Log the selected day
+        console.log("Selected day: ", day);
+
+        $.ajax({
+            url: '<?php echo base_url(); ?>welcome/get_meals_by_day',
+            type: 'POST',
+            data: { day: day },
+            dataType: 'json',
+            success: function (meals) {
+                console.log("Meals received: ", meals);  // Log the meals received
+
+                let orderedMeals = ['Breakfast', 'Lunch', 'Dinner'];  // Force the order
+                let mealButtons = '';
+
+                // Ensure meals are in the order of Breakfast, Lunch, and Dinner
+                orderedMeals.forEach(function (mealName) {
+                    const meal = meals.find(m => m.meal.toLowerCase() === mealName.toLowerCase());
+                    if (meal) {
+                        mealButtons += `
+                           <div class="col-lg-3 col-md-4 col-sm-6 my-2">
+    <div class="meal-card" onclick="openProducts('${meal.meal}')">
+        <div class="card border-0 hover-card">
+            <!-- Icon instead of image -->
+            <div class="meal-icon ${mealName.toLowerCase()}-icon"></div>
+            <div class="card-body text-center">
+                <h5 class="card-title">${meal.meal}</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+                        `;
+                    }
+                });
+
+                if (mealButtons === '') {
+                    mealButtons = '<p>No meals available for this day.</p>';
+                }
+
+                $('#meal-tabs').html(mealButtons);  // Add meal buttons
+                document.getElementById('meal-selection').style.display = 'block';  // Show the meal selection section
+            },
+            error: function (xhr, status, error) {
+                console.error("Error fetching meals:", error);  // Log any errors
+            }
+        });
+    }
+
+    // Fetch products for the selected day and meal
+    function openProducts(meal) {
+        // Log the selected meal
+        console.log("Selected meal: ", meal);
+
+        $.ajax({
+            url: '<?php echo base_url(); ?>welcome/get_products_by_day_and_meal',
+            type: 'POST',
+            data: { day: selectedDay, meal: meal },
+            dataType: 'json',
+            success: function (products) {
+                console.log("Products received: ", products);  // Log the products received
+
+                let productList = '';
+
+                if (products.length > 0) {
+                    products.forEach(function (product) {
+                        productList += `
+                        <div class="col-lg-3 col-md-4 col-sm-6 my-2">
+                            <div class="product-box card border-0 hover-card">
+                                <img src="assets/img/menu/${product.product_image}" alt="${product.product_name}" class="card-img-top">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">${product.product_name}</h5>
+                                    <p class="card-text">Price: $${product.price}</p>
+                                </div>
+                            </div>
+                        </div>`;
+                    });
+                } else {
+                    productList = '<p>No products available for this meal.</p>';
+                }
+
+                $('#product-list').html(productList);  // Add product items
+                document.getElementById('product-list-section').style.display = 'block';  // Show the product list section
+            },
+            error: function (xhr, status, error) {
+                console.error("Error fetching products:", error);  // Log any errors
+            }
+        });
+    }
+</script>

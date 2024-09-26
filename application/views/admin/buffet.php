@@ -1,23 +1,19 @@
 <div class="container">
     <h2 class="mt-5" style="color:#eabf33">Manage Buffet Menu</h2>
 
-    <!-- Add new product form -->
-    <div class="form-head dashboard-head d-md-flex d-block mb-5 align-items-start">
-        <h2 class="dashboard-title me-auto">
-            <a href="javascript:void(0);" class="btn btn-success btn-rounded ms-4 text-white d-inline-block flex-grow-1"
-                data-bs-toggle="modal" data-bs-target="#addNewProductModal">
-                Add New Buffet
-            </a>
-        </h2>
-        <div class="input-group search-area">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <a href="javascript:void(0);" class="btn btn-success btn-rounded text-white" data-bs-toggle="modal"
+            data-bs-target="#addNewProductModal">
+            Add New Buffet
+        </a>
+        <div class="input-group search-area w-50">
             <input type="text" class="form-control" id="searchInput" placeholder="Search here...">
             <span class="input-group-text">
-                <a href="javascript:void(0)" id="searchButton">
-                    <i class="flaticon-381-search-2"></i>
-                </a>
+                <a href="javascript:void(0)" id="searchButton"><i class="flaticon-381-search-2"></i></a>
             </span>
         </div>
     </div>
+
 
     <!-- List of products with actions -->
     <div class="card">

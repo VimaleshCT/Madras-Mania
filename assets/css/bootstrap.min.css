@@ -347,7 +347,6 @@ sup {
 }
 a {
 	color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));
-	text-decoration: underline;
 }
 a:hover {
 	--bs-link-color-rgb: var(--bs-link-hover-color-rgb);
@@ -1998,7 +1997,7 @@ progress {
 }
 .form-control {
 	display: block;
-	width: 100%;
+	width: 95%;
 	padding: 0.375rem 0.75rem;
 	font-size: 1rem;
 	font-weight: 400;

@@ -17,8 +17,11 @@ class Welcome extends CI_Controller
 	{
 		$data['viewpage'] = "index";
 		$data['days'] = ['Tuesday', 'Wednesday', 'Friday'];
+		$data['reels'] = $this->Usemodel->fetchInstagramReels();
 		$data['categories_with_products'] = $this->Usemodel->get_selected_categories_with_products(4);
 		$data["special_menu"] = $this->Usemodel->getTodaysSpecial();
+		$data['events'] = $this->Usemodel->get_all_events();
+
 		$this->load->view('welcome_message', $data);
 	}
 
@@ -35,9 +38,11 @@ class Welcome extends CI_Controller
 	}
 	public function menu()
 	{
-		$excluded_categories = ['Parotta Vilas']; // Exclude Parotta Vilas
+		// Exclude certain categories
+		$excluded_categories = [''];
+
+		$data['categories_with_products'] = $this->Usemodel->get_all_categories_with_products();
 		$data['viewpage'] = "menu";
-		$data['categories_with_products'] = $this->Usemodel->get_all_categories_with_products($excluded_categories);
 		$this->load->view('welcome_message', $data);
 	}
 	public function gallery()
@@ -45,6 +50,29 @@ class Welcome extends CI_Controller
 		$data['viewpage'] = "gallery";
 		$this->load->view('welcome_message', $data);
 	}
+
+
+	public function event_details($id)
+	{
+		// Load the Usemodel to fetch event data
+		$this->load->model('Usemodel');
+
+		// Fetch the event details using the ID
+		$event = $this->Usemodel->get_event_by_id($id);
+
+		// Check if the event exists
+		if (!empty($event)) {
+			$data['event'] = $event;
+			// Load the view and pass event data
+			$this->load->view('event_details', $data);
+		} else {
+			// If event not found, show 404 error or custom error page
+			show_404();
+		}
+	}
+
+
+
 	// Fetch meals based on the selected day via AJAX
 	public function get_meals_by_day()
 	{
@@ -67,14 +95,41 @@ class Welcome extends CI_Controller
 		$day = $this->input->post('day');
 		$meal = $this->input->post('meal');
 
-		// Fetch products for the selected day and meal
+		$this->load->model('Usemodel'); // Load your model
 		$products = $this->Usemodel->get_products_by_day_and_meal($day, $meal);
 
-		// Check if any products are found and return the JSON response
-		if (!empty($products)) {
-			echo json_encode($products);
+		echo json_encode($products);
+	}
+	public function process_booking()
+	{
+		// Set validation rules
+		$this->form_validation->set_rules('name', 'Name', 'required');
+		$this->form_validation->set_rules('phone', 'Phone', 'required|regex_match[/^\+?\d{10,15}$/]');
+		$this->form_validation->set_rules('person', 'Number of Persons', 'required');
+		$this->form_validation->set_rules('date', 'Date', 'required');
+		$this->form_validation->set_rules('time', 'Time', 'required');
+
+		if ($this->form_validation->run() == FALSE) {
+			// Validation failed
+			echo json_encode(['success' => false, 'message' => validation_errors()]);
+			return;
+		}
+
+		// Prepare data for insertion
+		$data = [
+			'name' => $this->input->post('name'),
+			'phone' => $this->input->post('phone'),
+			'person' => $this->input->post('person'),
+			'date' => $this->input->post('date'),
+			'time' => $this->input->post('time'),
+		];
+
+		// Insert booking data
+		if ($this->Usemodel->insert_booking($data)) {
+			echo json_encode(['success' => true]);
 		} else {
-			echo json_encode([]);
+			echo json_encode(['success' => false, 'message' => 'Database error occurred.']);
 		}
 	}
+
 }

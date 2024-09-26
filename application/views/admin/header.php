@@ -47,7 +47,7 @@
 
         /* Sidebar styling */
         .menu-sidebar {
-            width: 220px;
+            width: 180px;
             background-color: #F39C12;
             padding-top: 50px;
             transition: all 0.3s ease;
@@ -180,7 +180,7 @@
 
         @media (min-width: 769px) {
             .sidebar-toggle-btn {
-                position: absolute;
+
                 top: 15px;
                 left: 240px;
             }
@@ -204,8 +204,8 @@
                         <div class="d-flex align-items-center">
                             <!-- Logo -->
                             <div class="logo-header mostion logo-dark">
-                                <a href="#"><img src="<?php echo base_url(); ?>assets/img/Madras Mania Logo.png"
-                                        alt="Logo"></a>
+                                <a href="<?php echo base_url(); ?>index"><img
+                                        src="<?php echo base_url(); ?>assets/img/Madras Mania Logo.png" alt="Logo"></a>
                             </div>
 
                             <!-- Sidebar Toggle Button -->
@@ -220,10 +220,12 @@
                                 <!-- Toggle Button for Dropdown -->
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                                     <div class="header-info text-end">
-                                        <span>Hello, <strong>ADMIN</strong></span>
+                                        <span>Hello, <strong>ADMIN</strong> <img
+                                                src="<?php echo base_url(); ?>assets/img/icon/images.png" width="25"
+                                                alt="Admin" class="ms-2 rounded-circle"
+                                                style="align-items:center;"></span>
+
                                     </div>
-                                    <img src="<?php echo base_url(); ?>assets/img/icon/images.png" width="40"
-                                        alt="Admin" class="ms-2 rounded-circle">
                                 </a>
 
                                 <!-- Dropdown Menu -->
@@ -250,7 +252,7 @@
             <nav class="menu-sidebar" id="sidebar">
                 <div class="contact-box">
                     <ul class="home-nav">
-                        <h4 style="text-align:center">MENU</h4>
+
                         <li class="nav-item "><a href="<?php echo base_url(); ?>admin/fooditems"><i
                                     class="fas fa-utensils"></i> FoodItems</a></li>
                         <li class="nav-item"><a href="<?php echo base_url(); ?>admin/buffet"><i

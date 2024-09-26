@@ -72,39 +72,34 @@ class Usemodel extends CI_Model
 
         return $category_products;
     }
-
-    public function get_all_categories_with_products($excluded_categories = [6])
+    public function get_all_categories_with_products()
     {
-        // Select necessary fields
-        $this->db->select('category_id, category_name, product_name, price, description, product_image');
+        $this->db->select('category_name, product_name, price, description, product_image,veg_non_veg');
         $this->db->from('products');
+        $this->db->order_by('category_id');
+        $query = $this->db->get();
 
-        if (!empty($excluded_categories)) {
-            $this->db->where_not_in('category_name', $excluded_categories);
-        }
+        $products = $query->result_array();
+        $categories_with_products = [];
 
-        $this->db->order_by('category_id'); // Order by category ID
-        $products = $this->db->get()->result_array();
-
-        $category_products = [];
-
-        // Group products by category
+        // Group products by category_name
         foreach ($products as $product) {
-            $category_name = $product['category_name'];
-            $category_products[$category_name][] = $product;
+            $categories_with_products[$product['category_name']][] = $product;
         }
 
-        return $category_products;
+        return $categories_with_products;
     }
 
     public function getTodaysSpecial()
     {
-        $this->db->select('id,product_name, price, description, product_image');
+        // Make sure you include 'veg_non_veg' field in the query
+        $this->db->select('id, product_name, price, description, product_image, veg_non_veg');
         $this->db->from('products');
         $this->db->where('todayspecial', 1);
         $query = $this->db->get();
         return $query->result_array();
     }
+
     public function update_todays_special_status($productId, $todayspecial)
     {
         // Ensure the product ID is valid and update its status
@@ -112,16 +107,9 @@ class Usemodel extends CI_Model
         return $this->db->update('products', ['todayspecial' => $todayspecial]);
     }
 
-    public function get_all_products_with_categories()
-    {
-        $this->db->select('products.id,products.product_name, products.price, products.category_name, products.product_image, products.description');
-        $this->db->from('products');
 
-        $query = $this->db->get();
 
-        // Return the results as an array
-        return $query->result_array();
-    }
+
     public function getAllProducts()
     {
         $this->db->select('*');
@@ -143,11 +131,14 @@ class Usemodel extends CI_Model
     // Fetch products based on selected day and meal
     public function get_products_by_day_and_meal($day, $meal)
     {
+        $this->db->select('product_name, price, product_image, veg_non_veg'); // Add other fields you need
         $this->db->where('day', $day);
         $this->db->where('meal', $meal);
-        $query = $this->db->get('products');
+        $query = $this->db->get('products'); // Assuming 'products' is your table
+
         return $query->result_array();
     }
+
     //actions
 
     public function addProduct($data)
@@ -189,10 +180,9 @@ class Usemodel extends CI_Model
     // Fetch categories and related products
     public function get_categories_with_products()
     {
-        $this->db->select('c.category_id, c.category_name, GROUP_CONCAT(p.product_name SEPARATOR ", ") as products');
+        $this->db->select('c.category_id, c.category_name, p.product_name, p.price, p.description, p.product_image, p.veg_non_veg');
         $this->db->from('category c');
         $this->db->join('products p', 'p.category_id = c.category_id', 'left');
-        $this->db->group_by('c.category_id, c.category_name');
         return $this->db->get()->result_array();
     }
 
@@ -315,6 +305,72 @@ class Usemodel extends CI_Model
         return $this->db->update('products');
     }
 
-}
 
+    // Fetch Instagram Reels using the Instagram Graph API
+    public function fetchInstagramReels()
+    {
+        // Instagram API access token
+        $accessToken = 'YOUR_ACCESS_TOKEN';  // Replace with your actual Instagram API access token
+
+        // Instagram Graph API endpoint to fetch media
+        $url = 'https://graph.instagram.com/me/media?fields=id,caption,media_url,media_type,thumbnail_url,permalink&access_token=' . $accessToken;
+
+        // Initialize cURL session
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        // Execute the cURL request
+        $response = curl_exec($ch);
+
+        // Check for any errors
+        if (curl_errno($ch)) {
+            return ['error' => curl_error($ch)];
+        }
+
+        // Close the cURL session
+        curl_close($ch);
+
+        // Decode the API response to an associative array
+        $data = json_decode($response, true);
+
+        // Filter to only return video media types (Instagram Reels)
+        if (isset($data['data'])) {
+            $reels = array_filter($data['data'], function ($media) {
+                return $media['media_type'] === 'VIDEO';
+            });
+
+            return $reels;
+        } else {
+            // If there is an error in the API response, return the error message
+            return ['error' => 'Unable to fetch reels. Please check your access token or permissions.'];
+        }
+    }
+
+
+    public function get_all_events()
+    {
+        $this->load->database();
+        $query = $this->db->get('events');
+        return $query->result_array();
+    }
+
+    public function get_event_by_id($id)
+    {
+        $this->db->where('id', $id);
+        $query = $this->db->get('events'); // Assuming your table name is 'events'
+
+        // Check if the event exists
+        if ($query->num_rows() > 0) {
+            return $query->row_array(); // Return the event data as an associative array
+        } else {
+            return false; // Return false if no event found
+        }
+    }
+
+    public function insert_booking($data)
+    {
+        return $this->db->insert('booking', $data);
+    }
+}
 

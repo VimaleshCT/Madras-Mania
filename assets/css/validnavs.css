@@ -403,7 +403,7 @@ nav.navbar.validnavs .navbar-toggle::after {
 }
 nav.navbar.validnavs .navbar-toggle i {
 	font-weight: 300;
-	color: var(--color-heading);
+	color: #000;
 }
 nav.navbar.validnavs ul.nav .dropdown-menu .dropdown-menu {
 	top: 0;
@@ -2236,7 +2236,7 @@ ul.simple-menu-list > li i {
 		padding: 25px 0;
 	}
 	nav.navbar.validnavs.brand-center .logo-display {
-		display: block;
+		display: none;
 		width: 120px;
 		height: auto;
 	}
@@ -3390,5 +3390,12 @@ nav.navbar.validnavs ul li.dropdown ul.dropdown-menu.megamenu-content .title a {
 		text-align: left;
 		padding: 7px 10px !important;
 		font-size: 15px;
+	}
+}
+
+@media (max-width: 768px) {
+	.navbar .button {
+		display: block; /* Ensure it is visible */
+		margin: 10px 0; /* Add margin for spacing */
 	}
 }

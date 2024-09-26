@@ -15,7 +15,7 @@ class Admin extends CI_Controller
     // Default function that loads the login page
     public function index()
     {
-        $this->load->view('admin/login'); // Ensure this path points to your login view
+        $this->load->view('login'); // Ensure this path points to your login view
     }
 
     // Handle login form submission

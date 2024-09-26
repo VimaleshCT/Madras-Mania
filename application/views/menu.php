@@ -1,9 +1,9 @@
 <div class="breadcrumb-area bg-cover shadow dark text-center text-light"
-    style="background-image: url(assets/img/banner/2.jpg);">
+    style="background-image: url(assets/img/shape/2.jpg);">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12">
-                <h1>MENU</h1>
+                <h1>Menu</h1>
                 <ul class="breadcrumb">
                     <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
                     <li>Menu</li>
@@ -13,256 +13,128 @@
     </div>
 </div>
 
-<div class="food-menus-area default-padding">
-    <div class="container">
-        <?php $index = 0; ?>
 
-        <!-- Loop through categories -->
-        <?php foreach ($categories_with_products as $category_name => $products): ?>
+<div class="menu-container">
+    <div class="menu-header">
+        <h1>Food Menu</h1>
+        <p>We serve the best dishes with premium ingredients.</p>
+    </div>
+
+    <!-- Horizontal Scrollable Category Links (Sticky) -->
+    <div class="category-scroll-wrapper">
+        <div class="scroll-btn scroll-btn-left">&#10094;</div> <!-- Left arrow button -->
+        <div class="category-scroll" id="categoryScroll">
             <?php
-            // Define specific background images for each category
-            $background_images = [
-                'Suppe' => 'assets/img/portfolio/soup.jpg',
-                'Südindische Vorspeisen-veg' => 'assets/img/portfolio/samosa.jpg',
-                'Südindische Vorspeisen-Non-Veg' => 'assets/img/portfolio/uthappam.jpg',
-                'Dosa Welt' => 'assets/img/portfolio/uthappam.jpg',
-                'Idly Welt' => 'assets/img/portfolio/uthappam.jpg',
-                'Parotta Vilas' => 'assets/img/portfolio/uthappam.jpg',
-                'Uthappam' => 'assets/img/portfolio/samosa.jpg',
-                'Tandoori Vorspeisen(veg)' => 'assets/img/portfolio/paneer.jpg',
-                'Tandoori Vorspeisen(non-veg)' => 'assets/img/portfolio/tandoori.jpg',
-                'Nordindische Curries' => 'assets/img/portfolio/samosa.jpg',
-                'Südindische curries' => 'assets/img/portfolio/curries.jpg',
-                'Indische Brot' => 'assets/img/portfolio/samosa.jpg',
-                'Desserts' => 'assets/img/portfolio/brot.jpg',
-                'Getränke (Kalt)' => 'assets/img/portfolio/brot.jpg',
-                'Getränke (Heiz)' => 'assets/img/portfolio/brot.jpg',
-            ];
-
-            // Get the background image for the category if specified
-            $background_image = isset($background_images[$category_name]) ? $background_images[$category_name] : null;
+            foreach ($categories_with_products as $category => $products) {
+                echo '<span class="category-link" data-target="#category-' . $category . '">' . $category . '</span>';
+            }
             ?>
-
-            <?php if (count($products) <= 8): ?>
-                <!-- Display categories with 7 or fewer products -->
-                <div class="food-menus-item">
-                    <div class="row">
-                        <?php if ($index % 2 == 0): ?>
-                            <div class="col-lg-5 thumb" <?php if ($background_image): ?>style="background: url('<?php echo $background_image; ?>'); background-size: cover; background-position: center;"
-                                <?php endif; ?>>
-                                <div class="discount-badge">
-                                    <?php echo $category_name; ?>
-                                </div>
-                            </div>
-                            <div class="col-lg-7">
-                                <div class="info">
-                                    <ul class="meal-items">
-                                        <?php foreach ($products as $product): ?>
-                                            <li>
-                                                <div class="thumbnail">
-                                                    <img src="assets/img/menu/<?php echo $product['product_image']; ?>"
-                                                        alt="<?php echo $product['product_name']; ?>"
-                                                        style="width: auto; height: auto;">
-                                                </div>
-                                                <div class="content">
-                                                    <div class="top">
-                                                        <div class="title">
-                                                            <h4><a href="#"><?php echo $product['product_name']; ?></a></h4>
-                                                        </div>
-                                                        <div class="price">
-                                                            <span>$<?php echo $product['price']; ?></span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="bottom">
-                                                        <div class="left">
-                                                            <p><?php echo $product['description']; ?></p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        <?php endforeach; ?>
-                                    </ul>
-                                </div>
-                            </div>
-                        <?php else: ?>
-                            <div class="col-lg-7 order-lg-2">
-                                <div class="info">
-                                    <ul class="meal-items">
-                                        <?php foreach ($products as $product): ?>
-                                            <li>
-                                                <div class="thumbnail">
-                                                    <img src="assets/img/menu/<?php echo $product['product_image']; ?>"
-                                                        alt="<?php echo $product['product_name']; ?>"
-                                                        style="width: 100px; height: auto;">
-                                                </div>
-                                                <div class="content">
-                                                    <div class="top">
-                                                        <div class="title">
-                                                            <h4><a href="#"><?php echo $product['product_name']; ?></a></h4>
-                                                        </div>
-                                                        <div class="price">
-                                                            <span>$<?php echo $product['price']; ?></span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="bottom">
-                                                        <div class="left">
-                                                            <p><?php echo $product['description']; ?></p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        <?php endforeach; ?>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-lg-5 thumb order-lg-last" <?php if ($background_image): ?>style="background: url('<?php echo $background_image; ?>'); background-size: cover; background-position: center;"
-                                <?php endif; ?>>
-                                <div class="discount-badge">
-                                    <?php echo $category_name; ?>
-                                </div>
-                            </div>
-                        <?php endif; ?>
-                    </div>
-                </div>
-                <?php $index++; ?>
-            <?php endif; ?>
-        <?php endforeach; ?>
-
-        <!-- Display categories with more than 7 products afterwards -->
-        <div class="food-menus-area default-padding">
-            <div class="container">
-                <?php foreach ($categories_with_products as $category_name => $products): ?>
-                    <?php
-                    $background_image = isset($background_images[$category_name]) ? $background_images[$category_name] : null;
-                    ?>
-                    <?php if (count($products) > 8): ?>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="heading text-center">
-
-                                    <h2 class="title"><?php echo $category_name; ?></h2>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6 pr-50 pr-md-15 pr-xs-15 mb-md-50 mb-xs-30">
-                                <div class="info">
-                                    <ul class="meal-items">
-                                        <?php foreach (array_slice($products, 0, ceil(count($products) / 2)) as $product): ?>
-                                            <li>
-                                                <div class="thumbnail">
-                                                    <img src="assets/img/menu/<?php echo $product['product_image']; ?>"
-                                                        alt="<?php echo $product['product_name']; ?>">
-                                                </div>
-                                                <div class="content">
-                                                    <div class="top">
-                                                        <div class="title">
-                                                            <h4><a href="#"><?php echo $product['product_name']; ?></a></h4>
-                                                        </div>
-                                                        <div class="price">
-                                                            <span>$<?php echo $product['price']; ?></span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="bottom">
-                                                        <div class="left">
-                                                            <p><?php echo $product['description']; ?></p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        <?php endforeach; ?>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 pl-50 pl-md-15 pl-xs-15">
-                                <div class="meal-thumb-less">
-                                    <div class="info">
-                                        <ul class="meal-items">
-                                            <?php foreach (array_slice($products, ceil(count($products) / 2)) as $product): ?>
-                                                <li>
-                                                    <div class="thumbnail">
-                                                        <img src="assets/img/menu/<?php echo $product['product_image']; ?>"
-                                                            alt="<?php echo $product['product_name']; ?>">
-                                                    </div>
-                                                    <div class="content">
-                                                        <div class="top">
-                                                            <div class="title">
-                                                                <h4><a href="#"><?php echo $product['product_name']; ?></a></h4>
-                                                            </div>
-                                                            <div class="price">
-                                                                <span>$<?php echo $product['price']; ?></span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="bottom">
-                                                            <div class="left">
-                                                                <p><?php echo $product['description']; ?></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            <?php endforeach; ?>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    <?php endif; ?>
-                <?php endforeach; ?>
-            </div>
         </div>
+        <div class="scroll-btn scroll-btn-right">&#10095;</div> <!-- Right arrow button -->
     </div>
+
+    <!-- Products Grouped by Category -->
+    <div id="menuItems">
+        <?php
+        foreach ($categories_with_products as $category => $products) {
+            echo '<div id="category-' . $category . '" class="category-heading">
+                    <h2>' . $category . '</h2>
+                </div>';
+            echo '<div class="menu-items">';
+            foreach ($products as $product) {
+                echo '
+                    <div class="menu-item">
+                        <!-- Product details on the left side -->
+                        <div class="menu-item-text">
+                            <div class="product-name-container">
+                                <h3>' . $product["product_name"] . '</h3>
+                                <!-- Veg/Non-Veg Icon displayed next to the product name -->
+                                <div class="veg-nonveg-container">';
+                if ($product['veg_non_veg'] == 1) {
+                    echo '<img src="https://img.icons8.com/color/48/non-vegetarian-food-symbol.png" alt="non-veg icon" class="veg-nonveg-icon">';
+                } else {
+                    echo '<img src="https://img.icons8.com/color/48/vegetarian-food-symbol.png" alt="veg icon" class="veg-nonveg-icon">';
+                }
+                echo '</div>
+                            </div>
+                            <p>' . $product["description"] . '</p>
+                            <div class="product-price">Price: €' . number_format($product["price"], 2) . '</div>
+                        </div>
+
+                        <!-- Larger Product Image on the right side -->
+                        <div class="pic">
+                        <img src="assets/img/menu/' . $product["product_image"] . '" alt="' . $product["product_name"] . '">
+                        </div>
+                    </div>';
+            }
+            echo '</div>';
+        }
+        ?>
+    </div>
+
 </div>
 
+<!-- JavaScript to Handle Category Navigation, Scroll, and Buttons -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const categoryScroll = document.querySelector('.category-scroll');
+        const categoryLinks = document.querySelectorAll('.category-link');
+        const categories = document.querySelectorAll('.category-heading');
+        const scrollBtnLeft = document.querySelector('.scroll-btn-left');
+        const scrollBtnRight = document.querySelector('.scroll-btn-right');
+        const categoryWidth = categoryLinks[0].offsetWidth + 30; // Get width of one category, adding margin
 
+        // Scroll to respective category on clicking the category link
+        categoryLinks.forEach(link => {
+            link.addEventListener('click', function () {
+                const target = document.querySelector(link.getAttribute('data-target'));
+                window.scrollTo({
+                    top: target.offsetTop - 100, // Adjust for header
+                    behavior: 'smooth'
+                });
+            });
+        });
 
+        // Change active category based on scroll position
+        window.addEventListener('scroll', function () {
+            let fromTop = window.scrollY;
+            categories.forEach(category => {
+                let offsetTop = category.offsetTop - 150; // Adjust for fixed header height
+                let categoryId = category.getAttribute('id');
 
+                if (fromTop >= offsetTop) {
+                    document.querySelectorAll('.category-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    document.querySelector(`[data-target="#${categoryId}"]`).classList.add('active');
+                }
+            });
+        });
 
-<div class="opening-hours-area default-padding overflow-hidden">
-    <div class="container">
-        <div class="opening-hour-items">
-            <h2 class="text-fixed">Madras Mania</h2>
-            <div class="shape">
-                <img src="assets/img/shape/4.png" alt="Image Not Found">
-            </div>
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="opening-hours-thumb video-bg-live">
-                        <img src="assets/img/banner/7.jpg" alt="Image Not Found">
-                        <div class="player"
-                            data-property="{videoURL:'NC9KlaxtfLg',containment:'.video-bg-live', showControls:false, autoPlay:true, zoom:0, loop:true, mute:true, startAt:654, opacity:1, quality:'default'}">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="opening-hours-info">
-                        <h3>Opening Hours</h3>
-                        <p>
-                            A relaxing and pleasant atmosphere, good jazz, dinner, and cocktails. The Patio Time Bar
-                            opens in the center..
-                        </p>
-                        <ul class="opening-hours-table">
-                            <li>
-                                <h6>Sunday to Tuesday:</h6> <span>10:00 - 09:00</span>
-                            </li>
-                            <li>
-                                <h6>Wednesday to Thursday:</h6> <span>11:30 - 10:30</span>
-                            </li>
-                            <li>
-                                <h6>Friday & Saturday:</h6> <span>10:30 - 12:00</span>
-                            </li>
-                        </ul>
-                        <div class="call-to-action">
-                            <div class="icon">
-                                <img src="assets/img/icon/6.png" alt="Image Not Found">
-                            </div>
-                            <div class="info">
-                                <p>Call Anytime</p>
-                                <h4><a href="#">017622612355</a></h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+        // Horizontal scrolling functionality for category bar (6 items per scroll)
+        const scrollByAmount = categoryWidth * 6; // Scroll by width of 6 category links
+
+        scrollBtnLeft.addEventListener('click', function () {
+            categoryScroll.scrollBy({
+                left: -scrollByAmount, // Scroll 6 categories to the left
+                behavior: 'smooth'
+            });
+        });
+
+        scrollBtnRight.addEventListener('click', function () {
+            categoryScroll.scrollBy({
+                left: scrollByAmount, // Scroll 6 categories to the right
+                behavior: 'smooth'
+            });
+        });
+
+        // Prevent vertical scrolling within the category bar
+        categoryScroll.addEventListener('wheel', function (event) {
+            event.preventDefault();
+            categoryScroll.scrollBy({
+                left: event.deltaY < 0 ? -100 : 100, // Scroll horizontally on mouse wheel
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>

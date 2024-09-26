@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content=" ">
 	<title>Madras Mania </title>
-	<!-- <link rel="shortcut icon" href="assets/img/mm.png" type="image/x-icon"> -->
+	<link rel="shortcut icon" href="assets/img/mm.png" type="image/x-icon">
+	<link href="<?php echo base_url(); ?>assets/css/all.min.css" rel="stylesheet">
 	<link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet">
 	<link href="<?php echo base_url(); ?>assets/css/font-awesome.min.css" rel="stylesheet">
 	<link href="<?php echo base_url(); ?>assets/css/magnific-popup.css" rel="stylesheet">
@@ -19,9 +21,13 @@
 	<link href="<?php echo base_url(); ?>assets/css/unit-test.css" rel="stylesheet">
 	<link href="<?php echo base_url(); ?>assets/css/shop.css" rel="stylesheet">
 	<link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet">
-	<link href="<?php echo base_url(); ?>assets/style.css" rel="stylesheet">
 	<link href="<?php echo base_url(); ?>assets/css/custom.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+
+
+
 </head>
+
 <body>
 	<div class="top-bar-area top-bar-style-one bg-theme text-light bg-transparent">
 		<div class="container">
@@ -66,18 +72,22 @@
 					</button>
 					<ul class="nav navbar-nav navbar-center" data-in="fadeInDown" data-out="fadeOutUp">
 						<li class="dropdown megamenu-fw">
-							<a href="<?php echo base_url(); ?>" class="dropdown-toggle" data-toggle="dropdown">Home</a>
+							<a href="<?php echo base_url(); ?>" class="" data-toggle="">Home</a>
 						</li>
-						<li class="dropdown">
-							<a href="<?php echo base_url(); ?>aboutus" class="dropdown-toggle"
-								data-toggle="dropdown">About Us</a>
-							<ul class="dropdown-menu">
-								<li><a href="<?php echo base_url(); ?>aboutus">Brand Story</a></li>
+						<li class="nav-item dropdown">
+							<a href="#" class="nav-link dropdown-toggle" id="aboutUsDropdown" role="button"
+								data-bs-toggle="dropdown" aria-expanded="false">
+								About Us
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="aboutUsDropdown">
+								<li><a class="dropdown-item" href="<?php echo base_url(); ?>aboutus">Brand Story</a>
+								</li>
 							</ul>
 						</li>
+
+
 						<li class="dropdown">
-							<a href="<?php echo base_url(); ?>menu" class="dropdown-toggle"
-								data-toggle="dropdown">Menu</a>
+							<a href="<?php echo base_url(); ?>menu" class="" data-toggle="">Menu</a>
 						</li>
 						<li>
 							<a href="<?php echo base_url(); ?>gallery" class="" data-toggle="dropdown">Gallery</a>
@@ -98,8 +108,10 @@
 		</nav>
 	</header>
 
+
 	<?php $this->load->view($viewpage); ?>
 
+	<a class="btnnn btnnn-md btnnn-theme animation" href="<?php echo base_url(); ?>contact">Reservation</a>
 	<footer class="bg-dark text-light">
 		<div class="footer-style-two default-padding">
 			<div class="container">
@@ -240,7 +252,7 @@
 				<div class="row">
 					<div class="col-lg-6">
 						<p>© Copyright 2024 Madras Mania. All Rights Reserved by <a
-								href="<?php echo base_url(); ?> https://godparticles.co.in"><strong
+								href=" https://godparticles.co.in"><strong
 									style="font-weight: bold; color: #eabf33;">God Particles</strong></a></p>
 					</div>
 					<div class="col-lg-6 text-end">
@@ -259,9 +271,16 @@
 				</div>
 			</div>
 		</div>
-		<!-- End Footer Bottom -->
-
 	</footer>
+
+
+	<button class="btnnn-theme mobile-only" href="<?php echo base_url(); ?>contact">
+		<i class="fas fa-calendar-alt"></i>
+		<span>Reservation</span> <!-- This will be hidden by default -->
+	</button>
+
+
+
 	<script src="<?php echo base_url(); ?>assets/js/jquery-3.6.0.min.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/bootstrap.bundle.min.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/jquery.appear.js"></script>
@@ -279,5 +298,7 @@
 	<script src="<?php echo base_url(); ?>assets/js/ScrollTrigger.min.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/bootstrap-datepicker.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/main.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 </body>
+
 </html>

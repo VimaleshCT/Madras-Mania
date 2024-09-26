@@ -3,24 +3,33 @@
     <h2 class="mt-5" style="color:#eabf33; text-align:center;">Manage Categories</h2>
 
     <!-- Add new category form -->
-    <div class="card mb-4">
+    <div class="card mb-4 shadow-sm">
+        <div class="card-header" style="background-color: #eabf33; color: white;">
+            <h5 class="mb-0">Add New Category</h5>
+        </div>
         <div class="card-body">
             <form action="<?php echo base_url('admin/addCategory'); ?>" method="post">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="category_name">Category Name</label>
-                            <input type="text" name="category_name" class="form-control" required>
+                        <div class="form-group mb-3">
+                            <label for="category_name" class="form-label" style="padding:5px;">Category
+                                Name</label>
+                            <input type="text" name="category_name" class="form-control" style="margin: 15px;"
+                                placeholder="Enter category name" required>
                         </div>
                     </div>
-                    <div class="col-md-12 text-right" style="margin-top: 10px;">
-                        <button type="submit" class="btn btn-primary" style="background-color:#eabf33">Add
+                    <div class="col-md-12 d-flex justify-content-center mt-4" style="margin-bottom:10px;">
+                        <button type="submit" class="btn btn-primary"
+                            style="background-color: #eabf33; border-color: #eabf33; padding: 10px 30px;">Add
                             Category</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
+
+
+
 
     <!-- Category List Table -->
     <div class="table-responsive">

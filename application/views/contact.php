@@ -57,54 +57,7 @@
                     </ul>
                 </div>
             </div>
-            <!-- 
-            <div class="col-lg-10 offset-lg-1">
-                <div class="contact-form-style-one">
-                    <div class="heading text-center">
-                        <h5 class="sub-title">Keep in touch</h5>
-                        <h2 class="heading">Send us a Massage</h2>
-                    </div>
-                    <form action="https://validthemes.net/site-template/restan/assets/valid-mail/valid-contact.php"
-                        method="POST" class="contact-form contact-form">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="form-group">
-                                    <input class="form-control" id="name" name="name" placeholder="Name" type="text">
-                                    <span class="alert-error"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <input class="form-control" id="email" name="email" placeholder="Email*"
-                                        type="email">
-                                    <span class="alert-error"></span>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <input class="form-control" id="phone" name="phone" placeholder="Phone" type="text">
-                                    <span class="alert-error"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="form-group comments">
-                                    <textarea class="form-control" id="comments" name="comments"
-                                        placeholder="Your Message *"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <button type="submit" name="submit" id="submit">
-                                    <i class="fa fa-paper-plane"></i> Get in Touch
-                                </button>
-                            </div>
-                        </div>
-                        <!-- Alert Message -->
+
             <div class="col-lg-12 alert-notification">
                 <div id="message" class="alert-msg"></div>
             </div>
@@ -173,3 +126,143 @@
         </div>
     </div>
 </div>
+
+<div class="top-feature-style-one-area default-padding bg-cover" style="background-image: url(assets/img/shape/1.png);">
+    <div class="shape-bottom-right">
+        <img src="assets/img/shape/9.png" alt="Image Not Found">
+    </div>
+    <div class="container">
+        <div class="top-feature-style-one-info">
+            <div class="row align-center">
+                <div class="col-xl-4 col-lg-6">
+                    <div class="reservation-style-two mr-50 mr-md-0 mr-xs-0">
+                        <h2 class="title">Book a table</h2>
+                        <!-- Form with ID for submission -->
+                        <form id="bookingForm" method="POST">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label for="name">Name</label>
+                                        <input class="form-control" id="name" name="name" placeholder="Your name"
+                                            type="text" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone">Phone</label>
+                                        <input class="form-control" id="phone" name="phone" placeholder="+4733378901"
+                                            type="text" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label for="person">Person</label>
+                                        <select id="person" name="person" class="form-control" required>
+                                            <option value="2">Upto 2 Persons</option>
+                                            <option value="5">Upto 5 Persons</option>
+                                            <option value="10">Upto 10 Persons</option>
+                                            <option value="20">Upto 20 Persons</option>
+                                            <option value="30">Upto 30 Persons</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label for="date">Date</label>
+                                        <input type="date" class="form-control" id="date" name="date" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label for="time">Time</label>
+                                        <select id="time" name="time" class="form-control" required>
+                                            <option value="10:00 AM">10:00 AM</option>
+                                            <option value="11:00 AM">11:00 AM</option>
+                                            <option value="12:00 PM">12:00 PM</option>
+                                            <option value="1:00 PM">1:00 PM</option>
+                                            <option value="2:00 PM">2:00 PM</option>
+                                            <option value="3:00 PM">3:00 PM</option>
+                                            <option value="4:00 PM">4:00 PM</option>
+                                            <option value="5:00 PM">5:00 PM</option>
+                                            <option value="6:00 PM">6:00 PM</option>
+                                            <option value="7:00 PM">7:00 PM</option>
+                                            <option value="8:00 PM">8:00 PM</option>
+                                            <option value="9:00 PM">9:00 PM</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12" style="padding:10px;">
+                                    <button type="submit" class="btn btn-primary">Book A Table</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-6">
+                    <div class="top-feature-style-one-thumb animate" data-animate="fadeInUp">
+                        <img src="assets/img/tam1.jpg" alt="Image Not Found">
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-12 pl-50 pl-md-15 pl-xs-15">
+                    <div class="opening-hours-hightlight text-light">
+                        <h2 class="title">Opening Hours</h2>
+                        <ul>
+                            <li><span>Saturday :</span>
+                                <div class="pull-right">6.00 am - 12.00 pm</div>
+                            </li>
+                            <li><span>Sunday :</span>
+                                <div class="pull-right">8.30 am - 11.00 pm</div>
+                            </li>
+                            <li><span>Monday :</span>
+                                <div class="pull-right">9.00 am - 10.30 pm</div>
+                            </li>
+                            <li><span>Tuesday :</span>
+                                <div class="pull-right">8.00 am - 12.00 pm</div>
+                            </li>
+                            <li><span>Wednesday :</span>
+                                <div class="pull-right">9.45 am - 10.00 pm</div>
+                            </li>
+                            <li><span>Thursday :</span>
+                                <div class="pull-right">8.15 am - 12.00 pm</div>
+                            </li>
+                            <li><span>Friday :</span>
+                                <div class="pull-right">8.00 am - 12.00 pm</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Form Submission Script with Toastr Notifications -->
+<script>
+    $('#bookingForm').on('submit', function (event) {
+        event.preventDefault();
+
+        $.ajax({
+            url: '<?= base_url("Welcome/process_booking") ?>',
+            method: 'POST',
+            data: $(this).serialize(),
+            dataType: 'json',
+            success: function (response) {
+                if (response.success) {
+                    toastr.success('Booking successful!', 'Success');  // Success message
+                    $('#bookingForm')[0].reset();  // Reset form
+                } else {
+                    toastr.error('Error: ' + response.message, 'Booking Failed');
+                }
+            },
+            error: function () {
+                toastr.error('An error occurred. Please try again.', 'Error');
+            }
+        });
+    });
+</script>

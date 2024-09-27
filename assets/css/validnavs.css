@@ -1076,7 +1076,6 @@ body.on-side .body-overlay {
 	top: 0;
 }
 nav.navbar.validnavs ul.nav > li.dropdown > a.dropdown-toggle::after {
-	content: "\f107";
 	font-family: var(--fontawesome);
 	margin-left: 7px;
 	border: none;

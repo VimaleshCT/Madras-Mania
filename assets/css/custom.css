@@ -123,8 +123,10 @@ div.big-deal-area .container-fluid {
 }
 
 .card-img-top {
-	max-height: 180px;
+	width: 100px;
 	object-fit: cover;
+	justify-content: center;
+	align-items: center;
 }
 .product-box {
 	cursor: pointer;
@@ -204,17 +206,20 @@ div.big-deal-area .container-fluid {
 
 /* Breakfast icon */
 .breakfast-icon {
-	background-color: #f1c40f; /* Yellow background */
+	background-image: url("../img/day/room-service.png");
+	object-fit: cover;
 }
 
 /* Lunch icon */
 .lunch-icon {
-	background-color: #e67e22; /* Orange background */
+	background-image: url("../img/day/restaurant.png");
+	object-fit: cover;
 }
 
 /* Dinner icon */
 .dinner-icon {
-	background-color: #c0392b; /* Red background */
+	background-image: url("../img/day/dinner.png");
+	object-fit: cover;
 }
 
 /* Hover effect */
@@ -727,50 +732,68 @@ div.big-deal-area .container-fluid {
 
 @media (min-width: 1025px) {
 	.mobile-only {
-		display: none !important; /* Hide on larger screens */
+		display: none !important;
 	}
 }
-
-/* Show elements on mobile devices and tablets */
 @media (max-width: 1024px) {
 	.mobile-only {
-		display: block !important; /* Show on mobile and tablet screens */
+		display: block !important;
 	}
 
+	/* Button styling */
 	.btnnn-theme {
 		position: fixed;
-		top: 50px; /* Adjust position as needed */
+		top: 45%;
+		right: 0px;
 		background-color: #ffde04;
 		color: white;
-		font-family: "Montserrat", sans-serif;
-		font-size: 16px;
 		border: none;
 		cursor: pointer;
 		box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.4);
 		transition: all 0.3s linear;
 		z-index: 1;
 		display: flex;
+		flex-direction: column;
 		align-items: center;
+		padding: 5px;
 	}
 
-	/* Hide the text by default */
+	/* Initially hide the text */
 	.btnnn-theme span {
-		display: none; /* Hide text by default */
+		display: none;
+		writing-mode: vertical-rl;
+		transform: rotate(180deg); /* Ensures vertical text appears bottom-up */
 	}
 
-	/* Show the icon always */
+	/* Icon styling */
 	.btnnn-theme i {
-		font-size: 20px; /* Icon size */
+		font-size: 20px;
+		margin-bottom: 5px; /* Space between icon and hidden text */
 	}
 
-	/* Change button style on hover */
+	/* Hover state */
 	.btnnn-theme:hover {
 		background-color: #ffcc00;
 		color: white;
 	}
 
-	/* Show text on hover, but only if needed */
+	/* Show the text and icon in vertical alignment on hover */
 	.btnnn-theme:hover span {
-		display: inline; /* Show text on hover (optional) */
+		display: flex;
+		margin-right: 5px;
+	}
+}
+
+select {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	padding-right: 20px;
+	background-color: #fff;
+}
+
+@media (max-width: 768px) {
+	.pl-50 {
+		padding-left: 15px !important;
 	}
 }

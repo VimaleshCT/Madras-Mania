@@ -384,260 +384,319 @@
 </div>
 
 
-<div class="top-feature-style-one-area default-padding bg-cover">
+
+<div class="top-feature-style-one-area default-padding bg-cover" style="background-image: url(assets/img/shape/1.png);">
+    <div class="shape-bottom-right">
+        <img src="assets/img/shape/9.png" alt="Image Not Found">
+    </div>
     <div class="container">
         <div class="top-feature-style-one-info">
             <div class="row align-center">
                 <div class="col-xl-4 col-lg-6">
-                    <div class="reservation-style-two">
+                    <div class="reservation-style-two mr-50 mr-md-0 mr-xs-0">
                         <h2 class="title">Book a table</h2>
+                        <!-- Form with ID for submission -->
                         <form id="bookingForm" method="POST">
-                            <div class="form-group">
-                                <label for="name">Name</label>
-                                <input class="form-control" id="name" name="name" placeholder="Your name" type="text"
-                                    required>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label for="name">Name</label>
+                                        <input class="form-control" id="name" name="name" placeholder="Your name"
+                                            type="text" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone">Phone</label>
+                                        <input class="form-control" id="phone" name="phone" placeholder="+4733378901"
+                                            type="text" required>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="phone">Phone</label>
-                                <input class="form-control" id="phone" name="phone" placeholder="+4733378901"
-                                    type="text" required>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label for="person">Person</label>
+                                        <select id="person" name="person" class="form-control" required>
+                                            <option value="2">Upto 2 Persons</option>
+                                            <option value="5">Upto 5 Persons</option>
+                                            <option value="10">Upto 10 Persons</option>
+                                            <option value="20">Upto 20 Persons</option>
+                                            <option value="30">Upto 30 Persons</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="person">Person</label>
-                                <select id="person" name="person" class="form-control" required>
-                                    <option value="2">upto 2 Person</option>
-                                    <option value="5">upto 5 Person</option>
-                                    <option value="10">upto 10 Person</option>
-                                    <option value="20">upto 20 Person</option>
-                                    <option value="30">upto 30 Person</option>
-                                </select>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label for="date">Date</label>
+                                        <input type="date" class="form-control" id="date" name="date" required>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="date">Date</label>
-                                <input type="date" class="form-control" id="date" name="date" required>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label for="time">Time</label>
+                                        <select id="time" name="time" class="form-control" required>
+                                            <option value="10:00 AM">10:00 AM</option>
+                                            <option value="11:00 AM">11:00 AM</option>
+                                            <option value="12:00 PM">12:00 PM</option>
+                                            <option value="1:00 PM">1:00 PM</option>
+                                            <option value="2:00 PM">2:00 PM</option>
+                                            <option value="3:00 PM">3:00 PM</option>
+                                            <option value="4:00 PM">4:00 PM</option>
+                                            <option value="5:00 PM">5:00 PM</option>
+                                            <option value="6:00 PM">6:00 PM</option>
+                                            <option value="7:00 PM">7:00 PM</option>
+                                            <option value="8:00 PM">8:00 PM</option>
+                                            <option value="9:00 PM">9:00 PM</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="time">Time</label>
-                                <select id="time" name="time" class="form-control" required>
-                                    <option value="10:00 AM">10:00 AM</option>
-                                    <option value="11:00 AM">11:00 AM</option>
-                                    <option value="12:00 PM">12:00 PM</option>
-                                    <option value="1:00 PM">1:00 PM</option>
-                                    <option value="2:00 PM">2:00 PM</option>
-                                    <option value="3:00 PM">3:00 PM</option>
-                                    <option value="4:00 PM">4:00 PM</option>
-                                    <option value="5:00 PM">5:00 PM</option>
-                                    <option value="6:00 PM">6:00 PM</option>
-                                    <option value="7:00 PM">7:00 PM</option>
-                                    <option value="8:00 PM">8:00 PM</option>
-                                    <option value="9:00 PM">9:00 PM</option>
-                                </select>
+                            <div class="row">
+                                <div class="col-lg-12" style="padding:10px;">
+                                    <button type="submit" class="btn btn-primary">Book A Table</button>
+                                </div>
                             </div>
-                            <button type="submit" class="btn btn-primary">Book A Table</button>
                         </form>
                     </div>
                 </div>
+                <div class="col-xl-4 col-lg-6">
+                    <div class="top-feature-style-one-thumb animate" data-animate="fadeInUp">
+                        <img src="assets/img/tam1.jpg" alt="Image Not Found">
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-12 pl-50 pl-md-15 pl-xs-15">
+                    <div class="opening-hours-hightlight text-light">
+                        <h2 class="title">Opening Hours</h2>
+                        <ul>
+                            <li><span>Saturday :</span>
+                                <div class="pull-right">6.00 am - 12.00 pm</div>
+                            </li>
+                            <li><span>Sunday :</span>
+                                <div class="pull-right">8.30 am - 11.00 pm</div>
+                            </li>
+                            <li><span>Monday :</span>
+                                <div class="pull-right">9.00 am - 10.30 pm</div>
+                            </li>
+                            <li><span>Tuesday :</span>
+                                <div class="pull-right">8.00 am - 12.00 pm</div>
+                            </li>
+                            <li><span>Wednesday :</span>
+                                <div class="pull-right">9.45 am - 10.00 pm</div>
+                            </li>
+                            <li><span>Thursday :</span>
+                                <div class="pull-right">8.15 am - 12.00 pm</div>
+                            </li>
+                            <li><span>Friday :</span>
+                                <div class="pull-right">8.00 am - 12.00 pm</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+</div>
 
-    <script>
+<!-- Form Submission Script with Toastr Notifications -->
+<script>
+    $(document).ready(function () {
         $('#bookingForm').on('submit', function (event) {
-            event.preventDefault(); // Prevent default form submission
+            event.preventDefault();
 
             $.ajax({
-                url: '<?= base_url("welcome/process_booking") ?>', // Update with your actual URL
-                type: 'POST',
-                data: $(this).serialize(), // Serialize form data
+                url: '<?= base_url("Welcome/process_booking") ?>',
+                method: 'POST',
+                data: $(this).serialize(),
                 dataType: 'json',
                 success: function (response) {
                     if (response.success) {
-                        alert('Booking successful!');
-                        $('#bookingForm')[0].reset(); // Reset form after successful booking
+                        toastr.success('Booking successful!', 'Success');  // Success message
+                        $('#bookingForm')[0].reset();  // Reset form
                     } else {
-                        alert('Error: ' + response.message);
+                        toastr.error('Error: ' + response.message, 'Booking Failed');
                     }
                 },
                 error: function () {
-                    alert('An error occurred. Please try again.');
+                    toastr.error('An error occurred. Please try again.', 'Error');
                 }
             });
         });
-    </script>
+    });
+</script>
 
 
-
-    <div class="day-meal-selection-area default-padding bg-gray">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2">
-                    <div class="site-heading text-center">
-                        <h4 style="color: #eabf33;">Buffet Menu</h4>
-                        <h2 class="title">Explore our Menu by Day & Meal</h2>
-                    </div>
+<div class="day-meal-selection-area default-padding bg-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="site-heading text-center">
+                    <h4 style="color: #eabf33;">Buffet Menu</h4>
+                    <h2 class="title">Explore our Menu by Day & Meal</h2>
                 </div>
             </div>
+        </div>
 
-            <!-- Day Selection -->
-            <div class="row justify-content-center" id="day-tabs">
-                <?php
-                $weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-                foreach ($weekdays as $day): ?>
-                    <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                        <div class="day-card" id="day-<?php echo strtolower($day); ?>"
-                            onclick="openMeals('<?php echo $day; ?>')">
-                            <div class="card border-0 hover-card">
-                                <!-- Dynamically generated image path based on day -->
-                                <img src="assets/img/day/<?php echo strtolower($day); ?>.jpg" alt="<?php echo $day; ?>"
-                                    class="card-img-top">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title"><?php echo $day; ?></h5>
-                                </div>
+        <!-- Day Selection -->
+        <div class="row justify-content-center" id="day-tabs">
+            <?php
+            $weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+            foreach ($weekdays as $day): ?>
+                <div class="col-lg-3 col-md-4 col-sm-6 my-2">
+                    <div class="day-card" id="day-<?php echo strtolower($day); ?>"
+                        onclick="openMeals('<?php echo $day; ?>')">
+                        <div class="card border-0 hover-card">
+                            <!-- Dynamically generated image path based on day -->
+                            <img src="assets/img/day/<?php echo strtolower($day); ?>.png" alt="<?php echo $day; ?>"
+                                class="card-img-top">
+                            <div class="card-body text-center">
+                                <h5 class="card-title"><?php echo $day; ?></h5>
                             </div>
                         </div>
                     </div>
-                <?php endforeach; ?>
-            </div>
-
-            <!-- Meal Selection (Initially hidden) -->
-            <div id="meal-selection" class="row text-center" style="display: none;">
-                <h4 style="color: #eabf33;padding: 30px;">Select a Meal</h4>
-                <div class="col-lg-12 text-center">
-                    <div class="row justify-content-center" id="meal-tabs">
-                        <!-- Meals will be dynamically loaded here via AJAX -->
-                    </div>
                 </div>
-            </div>
-
-            <!-- Product List (Initially hidden) -->
-            <div id="product-list-section" class="row text-center" style="display: none;">
-                <h4 style="color: #eabf33;">Available Products</h4>
-                <div class="col-lg-12 text-center">
-                    <div class="row" id="product-list">
-                        <!-- Products will be dynamically loaded here via AJAX -->
-                    </div>
-                </div>
-            </div>
-
-
+            <?php endforeach; ?>
         </div>
+
+        <!-- Meal Selection (Initially hidden) -->
+        <div id="meal-selection" class="row text-center" style="display: none;">
+            <h4 style="color: #eabf33;padding: 30px;">Select a Meal</h4>
+            <div class="col-lg-12 text-center">
+                <div class="row justify-content-center" id="meal-tabs">
+                    <!-- Meals will be dynamically loaded here via AJAX -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Product List (Initially hidden) -->
+        <div id="product-list-section" class="row text-center" style="display: none;">
+            <h4 style="color: #eabf33;">Available Products</h4>
+            <div class="col-lg-12 text-center">
+                <div class="row" id="product-list">
+                    <!-- Products will be dynamically loaded here via AJAX -->
+                </div>
+            </div>
+        </div>
+
+
     </div>
+</div>
 
-    <div class="services-style-one-items">
-        <div class="container">
-            <div class="relative">
-                <div class="col-lg-8 offset-lg-2">
-                    <div class="site-heading text-center">
-                        <h4 class="sub-title">Our Events</h4>
-                        <h2 class="title">Types of Our Events</h2>
-                    </div>
+<div class="services-style-one-items">
+    <div class="container">
+        <div class="relative">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="site-heading text-center">
+                    <h4 class="sub-title">Our Events</h4>
+                    <h2 class="title">Types of Our Events</h2>
                 </div>
-                <!-- Navigation -->
-                <div class="services-swiper-nav">
-                    <div class="services-cat-prev"></div>
-                    <div class="services-cat-next"></div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="services-style-one-carousel swiper">
-                            <!-- Additional required wrapper -->
-                            <div class="swiper-wrapper">
-                                <!-- Loop through the events and display each event -->
-                                <?php if (!empty($events)): ?>
-                                    <?php foreach ($events as $event): ?>
-                                        <div class="swiper-slide">
-                                            <div class="services-style-one">
-                                                <div class="thumb">
-                                                    <img src="<?php echo base_url(); ?>assets/img/events/<?php echo $event['image']; ?>"
-                                                        alt="<?php echo $event['title']; ?>" />
-                                                    <h4>
-                                                        <a href="event_details.php?id=<?php echo $event['id']; ?>">
-                                                            <?php echo $event['title']; ?>
-                                                        </a>
-                                                    </h4>
-                                                </div>
-                                                <div class="info">
-                                                    <!-- Event Description -->
-                                                    <p><?php echo $event['description']; ?></p>
+            </div>
+            <!-- Navigation -->
+            <div class="services-swiper-nav">
+                <div class="services-cat-prev"></div>
+                <div class="services-cat-next"></div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="services-style-one-carousel swiper">
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
+                            <!-- Loop through the events and display each event -->
+                            <?php if (!empty($events)): ?>
+                                <?php foreach ($events as $event): ?>
+                                    <div class="swiper-slide">
+                                        <div class="services-style-one">
+                                            <div class="thumb">
+                                                <img src="<?php echo base_url(); ?>assets/img/events/<?php echo $event['image']; ?>"
+                                                    alt="<?php echo $event['title']; ?>" />
+                                                <h4>
+                                                    <a href="event_details.php?id=<?php echo $event['id']; ?>">
+                                                        <?php echo $event['title']; ?>
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div class="info">
+                                                <!-- Event Description -->
+                                                <p><?php echo $event['description']; ?></p>
 
-                                                    <!-- Event Info List -->
-                                                    <ul class="event-info-list">
-                                                        <li>
-                                                            <i class="far fa-calendar-alt"></i>
-                                                            <strong><?php echo $event['date']; ?></strong>
-                                                        </li>
-                                                        <li>
-                                                            <i class="far fa-clock"></i>
-                                                            <strong><?php echo $event['time']; ?></strong>
-                                                        </li>
-                                                    </ul>
+                                                <!-- Event Info List -->
+                                                <ul class="event-info-list">
+                                                    <li>
+                                                        <i class="far fa-calendar-alt"></i>
+                                                        <strong><?php echo $event['date']; ?></strong>
+                                                    </li>
+                                                    <li>
+                                                        <i class="far fa-clock"></i>
+                                                        <strong><?php echo $event['time']; ?></strong>
+                                                    </li>
+                                                </ul>
 
-                                                    <!-- Event Button (Aligned to the left) -->
-                                                    <a class="btn btn-light circle btn-md animation"
-                                                        href="<?php echo base_url(); ?>welcome/event_details/<?php echo $event['id']; ?>">View
-                                                        Details</a>
-                                                </div>
+                                                <!-- Event Button (Aligned to the left) -->
+                                                <a class="btn btn-light circle btn-md animation"
+                                                    href="<?php echo base_url(); ?>welcome/event_details/<?php echo $event['id']; ?>">View
+                                                    Details</a>
                                             </div>
                                         </div>
-                                    <?php endforeach; ?>
-                                <?php else: ?>
-                                    <p>No events found.</p>
-                                <?php endif; ?>
-                            </div>
+                                    </div>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <p>No events found.</p>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 
 
 
+<script>
+    var selectedDay = '';
 
+    // Function to clear previous meals and products when switching days
+    function clearPreviousSelections() {
+        $('#meal-tabs').html('');
+        document.getElementById('meal-selection').style.display = 'none';  // Hide the meal selection section
+        $('#product-list').html('');
+        document.getElementById('product-list-section').style.display = 'none';  // Hide the product list section
+    }
 
-    <script>
-        var selectedDay = '';
+    // Fetch meals for the selected day
+    function openMeals(day) {
+        selectedDay = day;
+        clearPreviousSelections();  // Clear previous selections
 
-        // Function to clear previous meals and products when switching days
-        function clearPreviousSelections() {
-            $('#meal-tabs').html('');
-            document.getElementById('meal-selection').style.display = 'none';  // Hide the meal selection section
-            $('#product-list').html('');
-            document.getElementById('product-list-section').style.display = 'none';  // Hide the product list section
-        }
+        // Mark all days inactive
+        document.querySelectorAll('.day-card').forEach(function (card) {
+            card.classList.remove('active');
+        });
 
-        // Fetch meals for the selected day
-        function openMeals(day) {
-            selectedDay = day;
-            clearPreviousSelections();  // Clear previous selections
+        // Activate the selected day
+        document.getElementById('day-' + day.toLowerCase()).classList.add('active');
 
-            // Mark all days inactive
-            document.querySelectorAll('.day-card').forEach(function (card) {
-                card.classList.remove('active');
-            });
+        // Log the selected day
+        console.log("Selected day: ", day);
 
-            // Activate the selected day
-            document.getElementById('day-' + day.toLowerCase()).classList.add('active');
+        $.ajax({
+            url: '<?php echo base_url(); ?>welcome/get_meals_by_day',
+            type: 'POST',
+            data: { day: day },
+            dataType: 'json',
+            success: function (meals) {
+                console.log("Meals received: ", meals);  // Log the meals received
 
-            // Log the selected day
-            console.log("Selected day: ", day);
+                let orderedMeals = ['Breakfast', 'Lunch', 'Dinner'];  // Force the order
+                let mealButtons = '';
 
-            $.ajax({
-                url: '<?php echo base_url(); ?>welcome/get_meals_by_day',
-                type: 'POST',
-                data: { day: day },
-                dataType: 'json',
-                success: function (meals) {
-                    console.log("Meals received: ", meals);  // Log the meals received
-
-                    let orderedMeals = ['Breakfast', 'Lunch', 'Dinner'];  // Force the order
-                    let mealButtons = '';
-
-                    orderedMeals.forEach(function (mealName) {
-                        const meal = meals.find(m => m.meal.toLowerCase() === mealName.toLowerCase());
-                        if (meal) {
-                            mealButtons += `
+                orderedMeals.forEach(function (mealName) {
+                    const meal = meals.find(m => m.meal.toLowerCase() === mealName.toLowerCase());
+                    if (meal) {
+                        mealButtons += `
                            <div class="col-lg-3 col-md-4 col-sm-6 my-2">
                                <div class="meal-card" onclick="openProducts('${meal.meal}')">
                                    <div class="card border-0 hover-card">
@@ -648,40 +707,40 @@
                                    </div>
                                </div>
                            </div>`;
-                        }
-                    });
-
-                    if (mealButtons === '') {
-                        mealButtons = '<p>No meals available for this day.</p>';
                     }
+                });
 
-                    $('#meal-tabs').html(mealButtons);  // Add meal buttons
-                    document.getElementById('meal-selection').style.display = 'block';  // Show the meal selection section
-                },
-                error: function (xhr, status, error) {
-                    console.error("Error fetching meals:", error);  // Log any errors
+                if (mealButtons === '') {
+                    mealButtons = '<p>No meals available for this day.</p>';
                 }
-            });
-        }
 
-        // Fetch products for the selected day and meal
-        // Fetch products for the selected day and meal
-        function openProducts(meal) {
-            console.log("Selected meal: ", meal);
+                $('#meal-tabs').html(mealButtons);  // Add meal buttons
+                document.getElementById('meal-selection').style.display = 'block';  // Show the meal selection section
+            },
+            error: function (xhr, status, error) {
+                console.error("Error fetching meals:", error);  // Log any errors
+            }
+        });
+    }
 
-            $.ajax({
-                url: '<?php echo base_url(); ?>welcome/get_products_by_day_and_meal',
-                type: 'POST',
-                data: { day: selectedDay, meal: meal },
-                dataType: 'json',
-                success: function (products) {
-                    console.log("Products received: ", products);  // Log the products received
+    // Fetch products for the selected day and meal
+    // Fetch products for the selected day and meal
+    function openProducts(meal) {
+        console.log("Selected meal: ", meal);
 
-                    let productList = '';
+        $.ajax({
+            url: '<?php echo base_url(); ?>welcome/get_products_by_day_and_meal',
+            type: 'POST',
+            data: { day: selectedDay, meal: meal },
+            dataType: 'json',
+            success: function (products) {
+                console.log("Products received: ", products);  // Log the products received
 
-                    if (products.length > 0) {
-                        products.forEach(function (product) {
-                            productList += `
+                let productList = '';
+
+                if (products.length > 0) {
+                    products.forEach(function (product) {
+                        productList += `
                     <div class="col-xl-4 col-lg-6 col-md-6 mt-30">
                         <div class="food-menu-style-three">
                             <div class="thumb">
@@ -693,13 +752,13 @@
                                     </div>
                                     <!-- Display veg/non-veg icon based on status -->
                                     ${product.veg_non_veg == 1
-                                    ? `<img width="30" height="30"
+                                ? `<img width="30" height="30"
                                                 src="https://img.icons8.com/color/48/non-vegetarian-food-symbol.png"
                                                 alt="non-vegetarian-food-symbol" style="margin-bottom: 15px;" />`
-                                    : `<img width="30" height="30"
+                                : `<img width="30" height="30"
                                                 src="https://img.icons8.com/color/48/vegetarian-food-symbol.png"
                                                 alt="vegetarian-food-symbol" style="margin-bottom: 15px;" />`
-                                }
+                            }
                                 </div>
                             </div>
                             <div class="info" style="background-color:#fff;">
@@ -707,31 +766,31 @@
                             </div>
                         </div>
                     </div>`;
-                        });
-                    } else {
-                        productList = '<p>No products available for this meal.</p>';
-                    }
-
-                    $('#product-list').html(productList);  // Add product items
-                    document.getElementById('product-list-section').style.display = 'block';  // Show the product list section
-                },
-                error: function (xhr, status, error) {
-                    console.error("Error fetching products:", error);  // Log any errors
+                    });
+                } else {
+                    productList = '<p>No products available for this meal.</p>';
                 }
-            });
-        }
 
-
-
-        // Auto-select the current day based on the Germany calendar
-        document.addEventListener('DOMContentLoaded', function () {
-            // Get today's date in Germany's timezone (Europe/Berlin)
-            const today = new Date().toLocaleString('en-us', {
-                weekday: 'long',
-                timeZone: 'Europe/Berlin'
-            });
-
-            console.log("Today's day in Germany: ", today);  // Log the current day in Germany
-            openMeals(today);  // Automatically select today's day based on Germany's calendar
+                $('#product-list').html(productList);  // Add product items
+                document.getElementById('product-list-section').style.display = 'block';  // Show the product list section
+            },
+            error: function (xhr, status, error) {
+                console.error("Error fetching products:", error);  // Log any errors
+            }
         });
-    </script>
+    }
+
+
+
+    // Auto-select the current day based on the Germany calendar
+    document.addEventListener('DOMContentLoaded', function () {
+        // Get today's date in Germany's timezone (Europe/Berlin)
+        const today = new Date().toLocaleString('en-us', {
+            weekday: 'long',
+            timeZone: 'Europe/Berlin'
+        });
+
+        console.log("Today's day in Germany: ", today);  // Log the current day in Germany
+        openMeals(today);  // Automatically select today's day based on Germany's calendar
+    });
+</script>

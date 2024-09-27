@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 19, 2024 at 09:36 AM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 7.3.31
+-- Generation Time: Sep 27, 2024 at 12:39 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,6 +24,21 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `booking`
+--
+
+CREATE TABLE `booking` (
+  `id` int(11) NOT NULL,
+  `name` text NOT NULL,
+  `Phone` varchar(255) NOT NULL,
+  `person` text NOT NULL,
+  `date` text NOT NULL,
+  `time` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `category`
 --
 
@@ -34,7 +49,7 @@ CREATE TABLE `category` (
   `home_menu` int(11) NOT NULL,
   `status` int(11) NOT NULL,
   `date` date NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `category`
@@ -61,6 +76,30 @@ INSERT INTO `category` (`category_id`, `category_name`, `category_icon`, `home_m
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `events`
+--
+
+CREATE TABLE `events` (
+  `id` int(11) NOT NULL,
+  `title` text NOT NULL,
+  `date` date NOT NULL,
+  `time` time NOT NULL,
+  `description` text NOT NULL,
+  `image` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `events`
+--
+
+INSERT INTO `events` (`id`, `title`, `date`, `time`, `description`, `image`) VALUES
+(1, 'Onam Celebration', '2024-09-15', '12:00:00', 'It was great fun time with the people wearing traditional dress of kerala and celebrating with friends together', '1.jpg\r\n'),
+(2, 'Ayudha Pooja & Vijayadashami Celebrations', '2024-10-11', '11:00:00', 'The integral parts of the Navaratri festival, Ayudha Pooja and Vijayadashami were celebrated in a grand manner.\r\n\r\n \r\n\r\n', '2.jpg\r\n'),
+(3, 'Food Festival', '2024-09-27', '15:00:00', 'food is good', '3.jpg');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `products`
 --
 
@@ -74,18 +113,18 @@ CREATE TABLE `products` (
   `todayspecial` int(11) DEFAULT NULL,
   `topseller` int(11) NOT NULL,
   `status` int(11) DEFAULT NULL,
-  `veg non-veg` int(11) NOT NULL,
+  `veg_non_veg` int(11) NOT NULL,
   `category_name` text NOT NULL,
   `day` text NOT NULL,
   `meal` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `product_name`, `description`, `product_image`, `price`, `category_id`, `todayspecial`, `topseller`, `status`, `veg non-veg`, `category_name`, `day`, `meal`) VALUES
-(1, 'Kozhi Malli Saaru (Non-veg)', ' Eine würzige südindische Hühnersuppe mit frischem Koriander\r\nund aromatischen Gewürzen', '1.jpg', '4.90', 1, 1, 0, 1, 1, 'Suppe', '', ''),
+INSERT INTO `products` (`id`, `product_name`, `description`, `product_image`, `price`, `category_id`, `todayspecial`, `topseller`, `status`, `veg_non_veg`, `category_name`, `day`, `meal`) VALUES
+(1, 'Kozhi Malli Saaru (Non-veg)', ' Eine würzige südindische Hühnersuppe mit frischem Koriander\r\nund aromatischen Gewürzen', '1.jpg', '4.90', 1, 1, 0, 1, 1, 'Suppe', 'Thursday', 'Lunch'),
 (2, 'Tomato Rasam(Veg)', 'Eine pikante südindische Tomatensuppe aromatischen\r\nGewürzen.', '2.jpg', '4.49', 1, 1, 0, 1, 0, 'Suppe', 'Tuesday', 'Lunch'),
 (3, 'Medhu Vada', 'Weiche, knusprige Linsen-Donuts, frittiert und perfekt gewürzt', '3.jpg', '5.99', 2, 0, 0, 1, 0, 'Südindische Vorspeisen-veg', 'Friday', 'Breakfast'),
 (4, 'Milagai / Onion / Vazhakkai Bread Bajji', 'Tiefgebackene Fritters aus ausgewählten Gemüsesorten, umhüllt von gewürztem Linsen-Teig', '4.jpg', '5.99', 2, 0, 0, 1, 0, 'Südindische Vorspeisen-veg', 'Tuesday', 'Breakfast'),
@@ -102,28 +141,28 @@ INSERT INTO `products` (`id`, `product_name`, `description`, `product_image`, `p
 (15, 'Tuticorin Nethili Fry', 'Knochenlose zarte Stücke von Lammfleisch, mariniert in handgemachten Gewürzmischungen des Kochs, mit Cashewnüssen geröstet', '15.jpg', '15', 3, 0, 0, 1, 1, 'Südindische Vorspeisen (non-veg)', '', ''),
 (16, 'Plain Dosa ', 'Dünner knuspriger Reis-Linsen-Crêpe', '16.jpg', '7', 4, 0, 0, 1, 0, 'Dosa Welt', 'Friday', 'Breakfast'),
 (17, 'Rava Dosa ', ' Dünner & knuspriger Crêpe aus Grieß & Reis mild gewürzt & garniert', '17.jpg', '8.5', 4, 0, 0, 1, 0, 'Dosa Welt', 'Friday', 'Breakfast'),
-(18, 'Madras Masala Dosa', 'Reis-Linsen-Crêpe, gefüllt mit Kartoffelpüree und Zwiebeln', '18.jpg', '8.99', 4, 1, 0, 1, 0, 'Dosa Welt ', 'Friday', 'Dinner'),
-(19, 'Mysore Masala Dosa', 'Rotes Chili-Chutney auf dünnem Reis-Linsen-Crêpe, gefüllt mit Kartoffelpüree und Zwiebeln', '19.jpg', '8.99', 4, 0, 0, 1, 0, 'Dosa Welt ', 'Friday', 'Dinner'),
+(18, 'Madras Masala Dosa', 'Reis-Linsen-Crêpe, gefüllt mit Kartoffelpüree und Zwiebeln', '18.jpg', '8.99', 4, 1, 0, 1, 0, 'Dosa Welt', 'Friday', 'Dinner'),
+(19, 'Mysore Masala Dosa', 'Rotes Chili-Chutney auf dünnem Reis-Linsen-Crêpe, gefüllt mit Kartoffelpüree und Zwiebeln', '19.jpg', '8.99', 4, 0, 0, 1, 0, 'Dosa Welt', 'Friday', 'Dinner'),
 (20, 'Milagaipodi Dosa ', 'Dünner Reis-Linsen-Crepe gefüllt mit einer Mischung aus gemahlenen Gewürzen, trockenen Chilischoten, Linsen, Kartoffeln, Zwiebeln und Sesana', '20.jpg', '7.5', 4, 0, 0, 1, 0, 'Dosa Welt', '', ''),
-(21, 'Paneer Dosa', 'Dünner Reiscrêpe gefüllt mit Hüttenkäse', '21.jpg', '9.99', 4, 0, 0, 1, 0, 'Dosa Welt ', 'Friday', 'Dinner'),
-(22, 'Onion Dosa ', 'Dünner, knuspriger Reis-Linsen-Crêpe mit Zwiebeln', '22.jpg', '7.99', 4, 0, 0, 1, 0, 'Dosa Welt ', 'Friday', 'Lunch'),
-(23, 'Ghee Roast', 'Dünner, langer Reis-Linsen-Crêpe, bestreut mit Desi Ghee', '23.jpg', '8.5', 4, 0, 0, 1, 0, 'Dosa Welt ', 'Friday', 'Lunch'),
-(24, 'Onion Rava Dosa ', 'Dünner, knuspriger Reis-Linsen-Crêpe mit Zwiebeln', '24.jpg', '8.99', 4, 0, 0, 1, 0, 'Dosa Welt ', 'Friday', 'Lunch'),
+(21, 'Paneer Dosa', 'Dünner Reiscrêpe gefüllt mit Hüttenkäse', '21.jpg', '9.99', 4, 0, 0, 1, 0, 'Dosa Welt', 'Friday', 'Dinner'),
+(22, 'Onion Dosa ', 'Dünner, knuspriger Reis-Linsen-Crêpe mit Zwiebeln', '22.jpg', '7.99', 4, 0, 0, 1, 0, 'Dosa Welt', 'Friday', 'Lunch'),
+(23, 'Ghee Roast', 'Dünner, langer Reis-Linsen-Crêpe, bestreut mit Desi Ghee', '23.jpg', '8.5', 4, 0, 0, 1, 0, 'Dosa Welt', 'Friday', 'Lunch'),
+(24, 'Onion Rava Dosa ', 'Dünner, knuspriger Reis-Linsen-Crêpe mit Zwiebeln', '24.jpg', '8.99', 4, 0, 0, 1, 0, 'Dosa Welt', 'Friday', 'Lunch'),
 (25, 'Onion Rava Masala dosa ', 'Dünner Crêpe aus Grieß & Reis bestreut mit Zwiebeln\n', '25.jpg', '9.99', 4, 0, 0, 1, 0, 'Dosa Welt', 'Friday', 'Breakfast'),
 (26, 'Pav Bhaji Dosa', 'Dünner, knuspriger Reis-Linsen-Crêpe mit Köstlicher Pav Bhaji(Füllung aus aromatischem Kartoffelgemüse ) ', '26.jpg', '10.99', 4, 0, 0, 1, 0, 'Dosa Welt', '', ''),
 (27, 'Schwezan Masala Dosa', 'Knuspriger Masala Dosa gefüllt mit Schezwan-gewürzten Kartoffeln und Käse', '27.jpg', '10.99', 4, 0, 0, 1, 0, 'Dosa Welt', '', ''),
-(28, 'Mushroom Chilli Cheese Dosa', 'Knusprige Dosa gefüllt mit würzigen Champignons, Chili und KäseKnusprige Dosa gefüllt mit würzigen Champignons, Chili und Käse', '28.jpg', '10.99', 4, 0, 0, 1, 0, 'Dosa Welt ', '', ''),
-(29, 'Chilly Cheese Dosa', 'Dünner, langer Crêpe aus Reis und Linsen gefüllt mit würzigem Chili und Käse.', '29.jpg', '10.99', 4, 0, 0, 1, 0, 'Dosa Welt ', '', ''),
+(28, 'Mushroom Chilli Cheese Dosa', 'Knusprige Dosa gefüllt mit würzigen Champignons, Chili und KäseKnusprige Dosa gefüllt mit würzigen Champignons, Chili und Käse', '28.jpg', '10.99', 4, 0, 0, 1, 0, 'Dosa Welt', '', ''),
+(29, 'Chilly Cheese Dosa', 'Dünner, langer Crêpe aus Reis und Linsen gefüllt mit würzigem Chili und Käse.', '29.jpg', '10.99', 4, 0, 0, 1, 0, 'Dosa Welt', '', ''),
 (30, 'Madras Mania Dosa( Chef\'s Special)', 'Dünner, langer Crêpe aus Reis und Linsen gefüllt mit würzigem Chili und Käse.', '30.jpg', '14.99', 4, 1, 0, 1, 0, 'Dosa Welt', '', ''),
 (31, 'Mickey Mouse Dosa ( Kids\' Special)', 'Ein einfacher Dosa in Mickey-Maus-Form, speziell für Kinder gestaltet.', '31.jpg', '7', 4, 0, 0, 1, 0, 'Dosa Welt', '', ''),
 (32, 'Idly (3 Nos)', 'Zermahlener gedämpfte, flach-runde Küchlein aus einem fermentierten Teig auf Basis von Urdbohnen und Reis.', '32.jpg', '7', 5, 0, 0, 1, 0, 'Idly Welt', 'Wednesday', 'Breakfast'),
 (33, 'Chilli Idly', 'Gedünstete Reisküchlein gehackt, leicht angebraten und mit würziger Chilisauce verfeinert.', '33.jpg', '9', 5, 0, 0, 1, 0, 'Idly Welt', 'Wednesday', 'Lunch'),
-(34, 'Idly Vada', 'Gedünsteter Reis- und Linsendonut, serviert mit Chutney und Sambar', '34.jpg', '8', 5, 0, 0, 1, 0, 'Idly Welt ', 'Wednesday', 'Breakfast'),
-(35, 'Thatte Idly (Karnataka Style)', 'Große, flache Donuts aus einem Teig aus Reis und Linsen, traditionell gedämpft und mit verschiedenen Chutneys und Sambar serviert', '35.jpg', '7.5', 5, 0, 0, 1, 0, 'Idly Welt ', 'Wednesday', 'Dinner'),
-(36, 'Mini Sambar Idly', 'Mini-Müßiggang köchelte im köstlichen Süden Indische Linsensoße, garniert mit Ghee', '36.jpg', '7', 5, 0, 0, 1, 0, 'Idly Welt ', 'Wednesday', 'Dinner'),
+(34, 'Idly Vada', 'Gedünsteter Reis- und Linsendonut, serviert mit Chutney und Sambar', '34.jpg', '8', 5, 0, 0, 1, 0, 'Idly Welt', 'Wednesday', 'Breakfast'),
+(35, 'Thatte Idly (Karnataka Style)', 'Große, flache Donuts aus einem Teig aus Reis und Linsen, traditionell gedämpft und mit verschiedenen Chutneys und Sambar serviert', '35.jpg', '7.5', 5, 0, 0, 1, 0, 'Idly Welt', 'Wednesday', 'Dinner'),
+(36, 'Mini Sambar Idly', 'Mini-Müßiggang köchelte im köstlichen Süden Indische Linsensoße, garniert mit Ghee', '36.jpg', '7', 5, 0, 0, 1, 0, 'Idly Welt', 'Wednesday', 'Dinner'),
 (37, 'Parotta & Salna', 'Köstliches südindisches luftiges Brot serviert mit Kartoffelpüree und Salna (Curry Soße)', '37.jpg', '8', 6, 0, 0, 1, 0, 'Parotta Vilas', 'Wednesday', 'Lunch'),
-(38, 'Veg Kaima Parotta', 'Geschnittene Parotta mit indischen Gewürzen und Gemüse, serviert mit Raitha', '38.jpg', '10.5', 6, 0, 0, 1, 0, 'Parotta Vilas ', '', ''),
-(39, 'Egg Kothu Parotta', 'Geschnittene Brot aus hellem Weizenmehl gekocht mit Gewürzen und Eier – serviert mit Gemüse Curry und Raitha.', '39.jpg', '11', 6, 0, 0, 1, 1, 'Parotta Vilas ', '', ''),
+(38, 'Veg Kaima Parotta', 'Geschnittene Parotta mit indischen Gewürzen und Gemüse, serviert mit Raitha', '38.jpg', '10.5', 6, 0, 0, 1, 0, 'Parotta Vilas', '', ''),
+(39, 'Egg Kothu Parotta', 'Geschnittene Brot aus hellem Weizenmehl gekocht mit Gewürzen und Eier – serviert mit Gemüse Curry und Raitha.', '39.jpg', '11', 6, 0, 0, 1, 1, 'Parotta Vilas', '', ''),
 (40, 'Onion Uthappam ', 'Dicker Reis-Linsen-Pfannkuchen mit Zwiebeln', '40.jpg', '7.99', 7, 0, 0, 1, 0, 'Uthappam', '', ''),
 (41, 'Veg Uthappam', 'Dicker Reis-Linsen-Pfannkuchen mit gemischtem Gemüse\n', '41.jpg', '9', 7, 0, 0, 1, 0, 'Uthappam', '', ''),
 (42, 'Tomato Onion Uthappam', 'Gegrillter Paneer in einer würzigen Joghurt-KnoblauchMarinade ', '42.jpg', '9', 7, 0, 0, 1, 0, 'Uthappam', 'Tuesday', 'Breakfast'),
@@ -147,14 +186,14 @@ INSERT INTO `products` (`id`, `product_name`, `description`, `product_image`, `p
 (60, 'Dal Makhani ', 'Schwarze Linsen in cremigem Curry aus Tomaten, Ingwer & Zwiebeln', '60.jpg', '12.99', 10, 0, 0, 1, 0, 'Nordindische Curries', '', ''),
 (61, 'Chicken Korma', 'Hähnchenbrust mit Karotten und Erbsen in milden Kokosnuss-Curry aus\nKardamom und Cashewnüssen', '61.jpg', '14.99', 10, 0, 0, 1, 1, 'Nordindische Curries', '', ''),
 (62, 'Lamb Rogan Josh', 'Zartes Lammfleisch in einer würzigen, tomatenbasierten Sauce mit einer\r\nMischung aus aromatischen Gewürzen und Joghurt.', '62.jpg', '16.99', 10, 0, 0, 1, 1, 'Nordindische Curries', '', ''),
-(63, 'Dal Tadka ', 'Würzige, gelbe Linsen in einer cremigen Sauce mit aromatischen Gewürzen und\neinem Hauch von Knoblauch und Zwiebeln.', '63.jpg', '10.99', 11, 0, 0, 1, 0, 'Südindische curries', '', ''),
-(64, 'Vegetable Stew (Only Wednesdays)', 'Gemüsetopf aus frischem Gemüse, das in Kokosmilch mit feinen Gewürzen geköchelt wird und\nein wohltuendes sowie nahrhaftes Gericht entstehen lässt', '64.jpg', '9.99', 11, 0, 0, 1, 0, 'Südindische curries', '', ''),
-(65, 'Ennai Kathirikkai', 'Gefüllte Babyauberginen in einer reichhaltigen, sauren Tamarindensoße, ein\nklassisches Gericht aus Tamil Nadu', '65.jpg', '9.99', 11, 0, 0, 1, 0, 'Südindische curries', '', ''),
-(66, 'Chicken Stew (Only Wednesdays)', 'Eintopf mit zartem Hühnerfleisch, gekocht mit einer Auswahl an frischem\nGemüse in einer mild gewürzten Brühe', '66.jpg', '13.99', 11, 0, 0, 1, 1, 'Südindische curries', '', ''),
-(67, 'Malabar Fish Curry (Fri/Sat/Sundays)', 'Frischer Fisch in einer reichhaltigen, würzigen Kokosnuss-Curry-Sauce, verfeinert\nmit Tamarinde und aromatischen Gewürzen.', '67.jpg', '14.99', 11, 0, 0, 1, 1, 'Südindische curries', '', ''),
-(68, 'Malabar Lamb Curry (Fri/Sat/Sundays)', 'Zartes Lammfleisch in einer reichhaltigen, würzigen Kokosnuss-Curry-Sauce,\nverfeinert mit aromatischen Gewürzen und Tamarinde.', '68.jpg', '16.99', 11, 0, 0, 1, 1, 'Südindische curries', '', ''),
-(69, 'Kozhikode Shrimp Curry (Fri/Sat/Sunday)', 'Zarte Garnelen in einer pikanten, cremigen Kokosnuss-Curry-Sauce, verfeinert\nmit aromatischen Gewürzen und Tamarinde', '69.jpg', '15.99', 11, 0, 0, 1, 1, 'Südindische curries', '', ''),
-(70, 'Chicken Chettinad', 'Hausgemachtes Chettinad Hühnermasala, eine traditionelle südindische\nKöstlichkeit, die mit einer einzigartigen Mischung aus selbstgemachten ', '70.jpg', '13.99', 11, 0, 0, 1, 1, 'Südindische curries', '', ''),
+(63, 'Dal Tadka ', 'Würzige, gelbe Linsen in einer cremigen Sauce mit aromatischen Gewürzen und\neinem Hauch von Knoblauch und Zwiebeln.', '63.jpg', '10.99', 11, 0, 0, 1, 0, 'Südindische Curries', '', ''),
+(64, 'Vegetable Stew (Only Wednesdays)', 'Gemüsetopf aus frischem Gemüse, das in Kokosmilch mit feinen Gewürzen geköchelt wird und\nein wohltuendes sowie nahrhaftes Gericht entstehen lässt', '64.jpg', '9.99', 11, 0, 0, 1, 0, 'Südindische Curries', '', ''),
+(65, 'Ennai Kathirikkai', 'Gefüllte Babyauberginen in einer reichhaltigen, sauren Tamarindensoße, ein\nklassisches Gericht aus Tamil Nadu', '65.jpg', '9.99', 11, 0, 0, 1, 0, 'Südindische Curries', '', ''),
+(66, 'Chicken Stew (Only Wednesdays)', 'Eintopf mit zartem Hühnerfleisch, gekocht mit einer Auswahl an frischem\nGemüse in einer mild gewürzten Brühe', '66.jpg', '13.99', 11, 0, 0, 1, 1, 'Südindische Curries', '', ''),
+(67, 'Malabar Fish Curry (Fri/Sat/Sundays)', 'Frischer Fisch in einer reichhaltigen, würzigen Kokosnuss-Curry-Sauce, verfeinert\nmit Tamarinde und aromatischen Gewürzen.', '67.jpg', '14.99', 11, 0, 0, 1, 1, 'Südindische Curries', '', ''),
+(68, 'Malabar Lamb Curry (Fri/Sat/Sundays)', 'Zartes Lammfleisch in einer reichhaltigen, würzigen Kokosnuss-Curry-Sauce,\nverfeinert mit aromatischen Gewürzen und Tamarinde.', '68.jpg', '16.99', 11, 0, 0, 1, 1, 'Südindische Curries', '', ''),
+(69, 'Kozhikode Shrimp Curry (Fri/Sat/Sunday)', 'Zarte Garnelen in einer pikanten, cremigen Kokosnuss-Curry-Sauce, verfeinert\nmit aromatischen Gewürzen und Tamarinde', '69.jpg', '15.99', 11, 0, 0, 1, 1, 'Südindische Curries', '', ''),
+(70, 'Chicken Chettinad', 'Hausgemachtes Chettinad Hühnermasala, eine traditionelle südindische\nKöstlichkeit, die mit einer einzigartigen Mischung aus selbstgemachten ', '70.jpg', '13.99', 11, 0, 0, 1, 1, 'Südindische Curries', '', ''),
 (71, 'Naan', 'Frisches Fladenbrot aus Weizenmehl\n', '71.jpg', '3', 12, 0, 0, 1, 0, 'Indische Brot', '', ''),
 (72, 'Butter Naan', NULL, '72.jpg', '3.5', 12, 0, 0, 1, 0, 'Indische Brot', '', ''),
 (73, 'Panner Kulcha', NULL, '73.jpg', '3.5', 12, 0, 0, 1, 0, 'Indische Brot', '', ''),
@@ -174,7 +213,7 @@ INSERT INTO `products` (`id`, `product_name`, `description`, `product_image`, `p
 (87, 'Wasser mit Kohlensäure (0,75 L)', NULL, '87.jpg', '5.5', 14, 0, 0, 1, 0, 'Getränke (Kalt)', '', ''),
 (88, 'Wasser Still (0,25 L)', NULL, '88.jpg', '2.5', 14, 0, 0, 1, 0, 'Getränke (Kalt)', '', ''),
 (89, 'Coca Cola (0,33 L)', NULL, '89.jpg', '3.5', 14, 0, 0, 1, 0, 'Getränke (Kalt)', '', ''),
-(90, 'Coca Cola (0,4 L)', NULL, '89.jpg', '4.1', 14, 1, 0, 1, 0, 'Getränke (Kalt)', '', ''),
+(90, 'Coca Cola (0,4 L)', NULL, '89.jpg', '4.1', 14, 0, 0, 1, 0, 'Getränke (Kalt)', '', ''),
 (91, 'Indian Masala Chai', NULL, '91.jpg', '4.2', 15, 0, 0, 1, 0, 'Getränke (Heiz)', '', ''),
 (92, 'Kumbakonam Degree Coffee', NULL, '92.jpg', '3', 15, 0, 0, 1, 0, 'Getränke (Heiz)', '', '');
 
@@ -188,7 +227,7 @@ CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user`
@@ -202,10 +241,22 @@ INSERT INTO `user` (`id`, `email`, `password`) VALUES
 --
 
 --
+-- Indexes for table `booking`
+--
+ALTER TABLE `booking`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`category_id`);
+
+--
+-- Indexes for table `events`
+--
+ALTER TABLE `events`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `products`
@@ -224,10 +275,22 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `booking`
+--
+ALTER TABLE `booking`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
   MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `events`
+--
+ALTER TABLE `events`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `products`

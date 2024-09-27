@@ -54,8 +54,7 @@ class Welcome extends CI_Controller
 
 	public function event_details($id)
 	{
-		// Load the Usemodel to fetch event data
-		$this->load->model('Usemodel');
+
 
 		// Fetch the event details using the ID
 		$event = $this->Usemodel->get_event_by_id($id);
@@ -63,12 +62,14 @@ class Welcome extends CI_Controller
 		// Check if the event exists
 		if (!empty($event)) {
 			$data['event'] = $event;
-			// Load the view and pass event data
-			$this->load->view('event_details', $data);
+
+			$data['viewpage'] = "event_details";
 		} else {
-			// If event not found, show 404 error or custom error page
+
 			show_404();
 		}
+
+		$this->load->view('welcome_message', $data);
 	}
 
 

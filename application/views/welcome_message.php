@@ -75,8 +75,8 @@
 							<a href="<?php echo base_url(); ?>" class="" data-toggle="">Home</a>
 						</li>
 						<li class="nav-item dropdown">
-							<a href="#" class="nav-link dropdown-toggle" id="aboutUsDropdown" role="button"
-								data-bs-toggle="dropdown" aria-expanded="false">
+							<a href="<?php echo base_url(); ?>aboutus" class="nav-link dropdown-toggle"
+								id="aboutUsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								About Us
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="aboutUsDropdown">
@@ -111,7 +111,6 @@
 
 	<?php $this->load->view($viewpage); ?>
 
-	<a class="btnnn btnnn-md btnnn-theme animation" href="<?php echo base_url(); ?>contact">Reservation</a>
 	<footer class="bg-dark text-light">
 		<div class="footer-style-two default-padding">
 			<div class="container">
@@ -274,12 +273,11 @@
 	</footer>
 
 
-	<button class="btnnn-theme mobile-only" href="<?php echo base_url(); ?>contact">
+
+	<a class="btnnn-theme mobile-only" href="<?php echo base_url(); ?>contact">
 		<i class="fas fa-calendar-alt"></i>
-		<span>Reservation</span> <!-- This will be hidden by default -->
-	</button>
-
-
+		<span>Reservation</span>
+	</a>
 
 	<script src="<?php echo base_url(); ?>assets/js/jquery-3.6.0.min.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/bootstrap.bundle.min.js"></script>
@@ -300,5 +298,7 @@
 	<script src="<?php echo base_url(); ?>assets/js/main.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 </body>
+
+
 
 </html>

@@ -6167,7 +6167,7 @@ button.mfp-prevent-close {
 	margin-right: 30px;
 }
 .deal-info p {
-	color: var(--color-heading);
+	color: #000;
 }
 .deal-info .sub-heading {
 	color: var(--color-heading);

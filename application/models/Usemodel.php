@@ -367,10 +367,10 @@ class Usemodel extends CI_Model
             return false; // Return false if no event found
         }
     }
-
     public function insert_booking($data)
     {
         return $this->db->insert('booking', $data);
     }
+
 }
 

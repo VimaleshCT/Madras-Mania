@@ -384,7 +384,6 @@
 </div>
 
 
-
 <div class="top-feature-style-one-area default-padding bg-cover" style="background-image: url(assets/img/shape/1.png);">
     <div class="shape-bottom-right">
         <img src="assets/img/shape/9.png" alt="Image Not Found">
@@ -499,8 +498,6 @@
         </div>
     </div>
 </div>
-
-<!-- Form Submission Script with Toastr Notifications -->
 <script>
     $(document).ready(function () {
         $('#bookingForm').on('submit', function (event) {
@@ -526,6 +523,7 @@
         });
     });
 </script>
+
 
 
 <div class="day-meal-selection-area default-padding bg-gray">

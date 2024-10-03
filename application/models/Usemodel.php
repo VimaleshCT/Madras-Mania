@@ -377,6 +377,7 @@ class Usemodel extends CI_Model
         return $this->db->insert('booking', $data);
     }
 
+
     // Insert a new event into the database
     public function add_event($data)
     {

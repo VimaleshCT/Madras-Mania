@@ -124,13 +124,12 @@ class Welcome extends CI_Controller
 			'date' => $this->input->post('date'),
 			'time' => $this->input->post('time'),
 		];
-
+		$this->load->model('Usemodel');
 		// Insert booking data
 		if ($this->Usemodel->insert_booking($data)) {
 			echo json_encode(['success' => true]);
 		} else {
-			echo json_encode(['success' => false, 'message' => 'Database error occurred.']);
+			echo json_encode(['success' => false, 'message' => 'Failed to save booking. Please try again.']);
 		}
 	}
-
 }

@@ -180,11 +180,14 @@ class Usemodel extends CI_Model
     // Fetch categories and related products
     public function get_categories_with_products()
     {
-        $this->db->select('c.category_id, c.category_name, p.product_name, p.price, p.description, p.product_image, p.veg_non_veg');
+        $this->db->select('c.category_id, c.category_name, GROUP_CONCAT(p.product_name SEPARATOR ", ") as products');
         $this->db->from('category c');
         $this->db->join('products p', 'p.category_id = c.category_id', 'left');
+        $this->db->group_by('c.category_id'); // Group by category to aggregate products
         return $this->db->get()->result_array();
     }
+
+
 
     // Check if the category name already exists
     public function check_existing_category($category_name)
@@ -372,11 +375,6 @@ class Usemodel extends CI_Model
             return false; // Return false if no event found
         }
     }
-    public function insert_booking($data)
-    {
-        return $this->db->insert('booking', $data);
-    }
-
 
     // Insert a new event into the database
     public function add_event($data)
@@ -398,5 +396,13 @@ class Usemodel extends CI_Model
         return $this->db->delete('events'); // Delete the event from the 'events' table
     }
 
+
+
+    public function insert_booking($data)
+    {
+        // Insert booking data into the 'booking' table
+        return $this->db->insert('booking', $data);
+    }
 }
+
 

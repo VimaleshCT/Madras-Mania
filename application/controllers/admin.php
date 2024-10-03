@@ -402,11 +402,12 @@ class Admin extends CI_Controller
     public function category()
     {
         $this->load->model('UseModel');
-        // Fetch categories and their related products
+        // Fetch categories and related products
         $data['categories'] = $this->UseModel->get_categories_with_products();
         $data['viewpage'] = "admin/category";
         $this->load->view('admin/header', $data);
     }
+
 
     // Add a new category
     public function addCategory()

@@ -101,6 +101,7 @@ class Welcome extends CI_Controller
 
 		echo json_encode($products);
 	}
+
 	public function process_booking()
 	{
 		// Set validation rules
@@ -124,10 +125,13 @@ class Welcome extends CI_Controller
 			'date' => $this->input->post('date'),
 			'time' => $this->input->post('time'),
 		];
+
+		// Load the model
 		$this->load->model('Usemodel');
+
 		// Insert booking data
 		if ($this->Usemodel->insert_booking($data)) {
-			echo json_encode(['success' => true]);
+			echo json_encode(['success' => true, 'message' => 'Booking saved successfully!']);
 		} else {
 			echo json_encode(['success' => false, 'message' => 'Failed to save booking. Please try again.']);
 		}

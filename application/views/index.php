@@ -414,7 +414,8 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label for="person">Person</label>
-                                        <select id="person" name="person" class="form-control" required>
+                                        <select id="person" name="person" class="form-control" required
+                                            style="border-color:#eabf33">
                                             <option value="2">Upto 2 Persons</option>
                                             <option value="5">Upto 5 Persons</option>
                                             <option value="10">Upto 10 Persons</option>
@@ -436,7 +437,8 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label for="time">Time</label>
-                                        <select id="time" name="time" class="form-control" required>
+                                        <select id="time" name="time" class="form-control" required
+                                            style="border-color:#eabf33">
                                             <option value="10:00 AM">10:00 AM</option>
                                             <option value="11:00 AM">11:00 AM</option>
                                             <option value="12:00 PM">12:00 PM</option>
@@ -501,27 +503,30 @@
 <script>
     $(document).ready(function () {
         $('#bookingForm').on('submit', function (event) {
-            event.preventDefault();
+            event.preventDefault(); // Prevent the default form submission
 
+            // Make AJAX request
             $.ajax({
-                url: '<?= base_url("Welcome/process_booking") ?>',
+                url: '<?= base_url("process_booking") ?>', // Your controller URL
                 method: 'POST',
-                data: $(this).serialize(),
+                data: $(this).serialize(), // Serialize form data
                 dataType: 'json',
                 success: function (response) {
                     if (response.success) {
-                        toastr.success('Booking successful!', 'Success');  // Success message
-                        $('#bookingForm')[0].reset();  // Reset form
+                        toastr.success(response.message, 'Success'); // Show success message
+                        $('#bookingForm')[0].reset(); // Reset the form fields
                     } else {
-                        toastr.error('Error: ' + response.message, 'Booking Failed');
+                        toastr.error(response.message, 'Booking Failed'); // Show error message
                     }
                 },
                 error: function () {
-                    toastr.error('An error occurred. Please try again.', 'Error');
+                    toastr.error('An error occurred. Please try again.', 'Error'); // General error
                 }
             });
         });
     });
+
+
 </script>
 
 

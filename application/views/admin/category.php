@@ -49,8 +49,15 @@
                             <td><?php echo $category['category_id']; ?></td>
                             <td><?php echo $category['category_name']; ?></td>
                             <td>
-                                <div class="product-list" title="<?php echo $category['products']; ?>">
-                                    <?php echo strlen($category['products']) > 50 ? substr($category['products'], 0, 50) . '...' : $category['products']; ?>
+                                <div class="product-list"
+                                    title="<?php echo !empty($category['products']) ? $category['products'] : 'No products'; ?>">
+                                    <?php
+                                    if (!empty($category['products'])) {
+                                        echo strlen($category['products']) > 50 ? substr($category['products'], 0, 50) . '...' : $category['products'];
+                                    } else {
+                                        echo 'No products';
+                                    }
+                                    ?>
                                 </div>
                             </td>
                             <td>
@@ -70,40 +77,6 @@
                                 </div>
                             </td>
                         </tr>
-
-                        <!-- Edit Category Modal -->
-                        <div class="modal fade" id="editCategoryModal<?php echo $category['category_id']; ?>" tabindex="-1"
-                            role="dialog" aria-labelledby="editCategoryModalLabel<?php echo $category['category_id']; ?>"
-                            aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title"
-                                            id="editCategoryModalLabel<?php echo $category['category_id']; ?>">Edit Category
-                                        </h5>
-                                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <form action="<?php echo base_url('admin/editCategory'); ?>" method="post">
-                                        <div class="modal-body">
-                                            <input type="hidden" name="category_id"
-                                                value="<?php echo $category['category_id']; ?>">
-                                            <div class="form-group">
-                                                <label for="category_name">Category Name</label>
-                                                <input type="text" name="category_name" class="form-control"
-                                                    value="<?php echo $category['category_name']; ?>" required>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary">Save Changes</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
                     <?php endforeach; ?>
                 <?php else: ?>
                     <tr>
@@ -111,6 +84,7 @@
                     </tr>
                 <?php endif; ?>
             </tbody>
+
         </table>
     </div>
 </div>

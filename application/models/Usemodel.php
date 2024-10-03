@@ -348,6 +348,11 @@ class Usemodel extends CI_Model
     }
 
 
+
+
+
+    //EVENTS
+
     public function get_all_events()
     {
         $this->load->database();
@@ -370,6 +375,26 @@ class Usemodel extends CI_Model
     public function insert_booking($data)
     {
         return $this->db->insert('booking', $data);
+    }
+
+    // Insert a new event into the database
+    public function add_event($data)
+    {
+        return $this->db->insert('events', $data); // Insert the event data into the 'events' table
+    }
+
+    // Update an existing event by its ID
+    public function update_event($id, $data)
+    {
+        $this->db->where('id', $id);
+        return $this->db->update('events', $data); // Update the event in the 'events' table
+    }
+
+    // Delete an event by its ID
+    public function delete_event($id)
+    {
+        $this->db->where('id', $id);
+        return $this->db->delete('events'); // Delete the event from the 'events' table
     }
 
 }

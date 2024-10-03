@@ -457,4 +457,122 @@ class Admin extends CI_Controller
         redirect('admin/category');
     }
 
+
+    // EVENTS
+
+    public function events()
+    {
+        $data['events'] = $this->Usemodel->get_all_events();
+        $data['viewpage'] = "admin/events";
+        $this->load->view('admin/header', $data);
+    }
+
+    // Create new event
+    public function create_event()
+    {
+        $this->load->view('admin/events/create'); // Load the create event form
+    }
+
+    public function store_event()
+    {
+        // Validation rules for the event
+        $this->form_validation->set_rules('title', 'Event Name', 'required'); // Changed 'event_name' to 'title'
+        $this->form_validation->set_rules('date', 'Event Date', 'required'); // Changed 'event_date' to 'date'
+
+        // Add other rules as necessary
+
+        if ($this->form_validation->run() == FALSE) {
+            // Validation failed, reload the form with errors
+            $this->load->view('admin/events/create');
+        } else {
+            // Insert event into the database
+            $data = [
+                'title' => $this->input->post('title'),
+                'date' => $this->input->post('date'),
+                'time' => $this->input->post('time'), // Ensure this is also handled if required
+                'description' => $this->input->post('description'),
+                // Handle file upload if a new image is provided
+            ];
+
+            // Handle file upload
+            if (!empty($_FILES['image']['name'])) {
+                $config['upload_path'] = './assets/img/events/';
+                $config['allowed_types'] = 'jpg|jpeg|png';
+                $config['file_name'] = uniqid(); // Create a unique file name
+                $this->load->library('upload', $config);
+
+                if (!$this->upload->do_upload('image')) {
+                    // Handle upload error
+                    $error = $this->upload->display_errors();
+                    // Set flash data or error message if needed
+                } else {
+                    $upload_data = $this->upload->data();
+                    $data['image'] = $upload_data['file_name']; // Save the file name to the database
+                }
+            }
+
+            $this->Usemodel->add_event($data);
+            redirect('admin/events'); // Redirect to the events list after creation
+        }
+    }
+
+    // Edit an event
+    public function edit_event($id)
+    {
+        $data['event'] = $this->Usemodel->get_event_by_id($id);
+        $this->load->view('admin/events/edit', $data); // Load the edit form
+    }
+
+    public function update_event($id)
+    {
+        // Set form validation rules
+        $this->form_validation->set_rules('title', 'Event Name', 'required'); // Changed 'event_name' to 'title'
+        $this->form_validation->set_rules('date', 'Event Date', 'required'); // Changed 'event_date' to 'date'
+
+        if ($this->form_validation->run() == FALSE) {
+            $data['event'] = $this->Usemodel->get_event_by_id($id);
+            $this->load->view('admin/events/edit', $data); // Reload with errors
+        } else {
+            // Prepare data for update
+            $data = [
+                'title' => $this->input->post('title'),
+                'date' => $this->input->post('date'),
+                'time' => $this->input->post('time'), // Ensure this is also handled if required
+                'description' => $this->input->post('description'),
+            ];
+
+            // Assuming $id is the event ID being updated
+            $this->db->where('id', $id);
+            $this->db->update('events', $data);
+
+            // Handle file upload if a new image is provided
+            if (!empty($_FILES['image']['name'])) {
+                $config['upload_path'] = './assets/img/events/';
+                $config['allowed_types'] = 'jpg|jpeg|png';
+                $config['file_name'] = uniqid(); // Create a unique file name
+                $this->load->library('upload', $config);
+
+                if (!$this->upload->do_upload('image')) {
+                    // Handle upload error
+                    $error = $this->upload->display_errors();
+                    // Set flash data or error message if needed
+                } else {
+                    $upload_data = $this->upload->data();
+                    $data['image'] = $upload_data['file_name']; // Save the file name to the database
+                }
+            }
+
+            // Update event in the model
+            $this->Usemodel->update_event($id, $data);
+            redirect('admin/events'); // Redirect to events list after update
+        }
+    }
+
+    // Delete an event
+    public function delete_event($id)
+    {
+        $this->Usemodel->delete_event($id);
+        redirect('admin/events'); // Redirect to events list after deletion
+    }
 }
+

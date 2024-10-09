@@ -26,7 +26,9 @@
         <div class="category-scroll" id="categoryScroll">
             <?php
             foreach ($categories_with_products as $category => $products) {
-                echo '<span class="category-link" data-target="#category-' . $category . '">' . $category . '</span>';
+                // Use the slug from the first product in the category
+                $slug = $products[0]['slug']; // Ensure that slug is correctly defined here
+                echo '<span class="category-link" data-target="#category-' . $slug . '">' . $category . '</span>';
             }
             ?>
         </div>
@@ -37,40 +39,39 @@
     <div id="menuItems">
         <?php
         foreach ($categories_with_products as $category => $products) {
-            echo '<div id="category-' . $category . '" class="category-heading">
-                    <h2>' . $category . '</h2>
-                </div>';
+            // Use the slug from the first product in the category
+            $slug = $products[0]['slug']; // Ensure that slug is correctly defined here
+            echo '<div id="category-' . $slug . '" class="category-heading">
+                <h2>' . $category . '</h2>
+            </div>';
             echo '<div class="menu-items">';
             foreach ($products as $product) {
                 echo '
-                    <div class="menu-item">
-                        <!-- Product details on the left side -->
-                        <div class="menu-item-text">
-                            <div class="product-name-container">
-                                <h3>' . $product["product_name"] . '</h3>
-                                <!-- Veg/Non-Veg Icon displayed next to the product name -->
-                                <div class="veg-nonveg-container">';
+                <div class="menu-item">
+                    <div class="menu-item-text">
+                        <div class="product-name-container">
+                            <h3>' . $product["product_name"] . '</h3>
+                            <div class="veg-nonveg-container">';
                 if ($product['veg_non_veg'] == 1) {
                     echo '<img src="https://img.icons8.com/color/48/non-vegetarian-food-symbol.png" alt="non-veg icon" class="veg-nonveg-icon">';
                 } else {
                     echo '<img src="https://img.icons8.com/color/48/vegetarian-food-symbol.png" alt="veg icon" class="veg-nonveg-icon">';
                 }
                 echo '</div>
-                            </div>
-                            <p>' . $product["description"] . '</p>
-                            <div class="product-price">Price: €' . number_format($product["price"], 2) . '</div>
                         </div>
-
-                        <!-- Larger Product Image on the right side -->
-                        <div class="pic">
-                        <img src="assets/img/menu/' . $product["product_image"] . '" alt="' . $product["product_name"] . '">
-                        </div>
-                    </div>';
+                        <p>' . $product["description"] . '</p>
+                        <div class="product-price">Price: €' . number_format($product["price"], 2) . '</div>
+                    </div>
+                    <div class="pic">
+                    <img src="assets/img/menu/' . $product["product_image"] . '" alt="' . $product["product_name"] . '">
+                    </div>
+                </div>';
             }
             echo '</div>';
         }
         ?>
     </div>
+
 
 </div>
 

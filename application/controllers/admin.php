@@ -57,7 +57,7 @@ class Admin extends CI_Controller
             } else {
                 // Invalid credentials, reload login page with error message
                 $this->session->set_flashdata('error', 'Invalid email or password. Please try again.');
-                redirect(base_url('admin/index'));
+                redirect(base_url('admin/adminlogin'));
             }
         }
     }

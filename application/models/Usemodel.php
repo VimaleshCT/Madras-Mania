@@ -74,7 +74,7 @@ class Usemodel extends CI_Model
     }
     public function get_all_categories_with_products()
     {
-        $this->db->select('category_name, product_name, price, description, product_image,veg_non_veg');
+        $this->db->select('category_name, product_name, price, description, product_image, veg_non_veg');
         $this->db->from('products');
         $this->db->order_by('category_id');
         $query = $this->db->get();
@@ -84,11 +84,15 @@ class Usemodel extends CI_Model
 
         // Group products by category_name
         foreach ($products as $product) {
+            // Generate a slug based on the category name
+            $slug = url_title($product['category_name'], 'dash', true); // Slugify the category name
+            $product['slug'] = $slug; // Add slug to each product
             $categories_with_products[$product['category_name']][] = $product;
         }
 
         return $categories_with_products;
     }
+
 
     public function getTodaysSpecial()
     {

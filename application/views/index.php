@@ -567,7 +567,7 @@
 
             // Make AJAX request
             $.ajax({
-                url: '<?= base_url("process_booking") ?>', // Your controller URL
+                url: '<?= base_url("welocome/process_booking") ?>', // Your controller URL
                 method: 'POST',
                 data: $(this).serialize(), // Serialize form data
                 dataType: 'json',
@@ -856,4 +856,4 @@
         console.log("Today's day in Germany: ", today);  // Log the current day in Germany
         openMeals(today);  // Automatically select today's day based on Germany's calendar
     });
-</script>   
+</script>

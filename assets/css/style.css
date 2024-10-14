@@ -463,7 +463,7 @@ img {
 	display: inline-block;
 }
 .text-light {
-	color: var(--white);
+	color: #7f060f;
 }
 .text-light h1,
 .text-light h2,
@@ -471,9 +471,12 @@ img {
 .text-light h4,
 .text-light h5,
 .text-light h6,
-.text-light p,
-.text-light span,
 .text-light a {
+	color: #7f060f;
+}
+
+.text-light p,
+.text-light span {
 	color: var(--white);
 }
 .shadow {
@@ -690,7 +693,7 @@ img {
 	margin-bottom: 40px;
 }
 .bg-dark .site-heading .title {
-	color: var(--white);
+	color: #7f060f;
 }
 .sub-title {
 	text-transform: uppercase;
@@ -844,7 +847,7 @@ img {
 	color: var(--color-secondary);
 }
 .color-style-two .text-light .sub-heading {
-	color: var(--white);
+	color: #7f060f;
 }
 .sub-heading::before {
 	position: absolute;

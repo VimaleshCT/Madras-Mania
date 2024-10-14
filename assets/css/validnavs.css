@@ -1824,7 +1824,7 @@ nav.validnavs.brand-center .navbar-brand svg {
 		background-color: var(--dark);
 	}
 	nav.validnavs.dark-layout.brand-center ul.nav > li > a {
-		color: var(--white);
+		color: #7f060f;
 	}
 	nav.validnavs.brand-center .navbar-brand img {
 		position: relative;
@@ -1855,7 +1855,7 @@ nav.validnavs.brand-center .navbar-brand svg {
 	}
 	.nav-box.no-background .container.nav-container ul.nav > li > a {
 		padding: 28px 15px;
-		color: var(--white);
+		color: #7f060f;
 	}
 	nav.navbar.validnavs.navbar-fixed.nav-box.no-background ul.nav > li > a,
 	nav.navbar.validnavs.navbar-fixed.nav-box.no-background
@@ -1863,7 +1863,7 @@ nav.validnavs.brand-center .navbar-brand svg {
 		> ul
 		> li
 		> a {
-		color: var(--white);
+		color: #7f060f;
 	}
 	nav.validnavs.brand-center.sticked .navbar-brand {
 		background: var(--color-primary) !important;

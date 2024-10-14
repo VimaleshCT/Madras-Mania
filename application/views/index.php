@@ -590,7 +590,6 @@
 </script>
 
 
-
 <div class="day-meal-selection-area default-padding bg-gray">
     <div class="container">
         <div class="row">
@@ -642,10 +641,9 @@
                 </div>
             </div>
         </div>
-
-
     </div>
 </div>
+
 
 <div class="services-style-one-items">
     <div class="container">
@@ -718,14 +716,16 @@
 
 
 
+
+
 <script>
     var selectedDay = '';
 
     // Function to clear previous meals and products when switching days
     function clearPreviousSelections() {
-        $('#meal-tabs').html('');
+        $('#meal-tabs').html('');  // Clear meal tabs
         document.getElementById('meal-selection').style.display = 'none';  // Hide the meal selection section
-        $('#product-list').html('');
+        $('#product-list').html('');  // Clear product list
         document.getElementById('product-list-section').style.display = 'none';  // Hide the product list section
     }
 
@@ -779,6 +779,9 @@
 
                 $('#meal-tabs').html(mealButtons);  // Add meal buttons
                 document.getElementById('meal-selection').style.display = 'block';  // Show the meal selection section
+
+                // Automatically select Breakfast for the active day
+                openProducts('Breakfast');  // Automatically load products for Breakfast
             },
             error: function (xhr, status, error) {
                 console.error("Error fetching meals:", error);  // Log any errors
@@ -786,7 +789,6 @@
         });
     }
 
-    // Fetch products for the selected day and meal
     // Fetch products for the selected day and meal
     function openProducts(meal) {
         console.log("Selected meal: ", meal);
@@ -843,8 +845,6 @@
         });
     }
 
-
-
     // Auto-select the current day based on the Germany calendar
     document.addEventListener('DOMContentLoaded', function () {
         // Get today's date in Germany's timezone (Europe/Berlin)
@@ -856,4 +856,4 @@
         console.log("Today's day in Germany: ", today);  // Log the current day in Germany
         openMeals(today);  // Automatically select today's day based on Germany's calendar
     });
-</script>
+</script>   

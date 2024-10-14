@@ -75,7 +75,70 @@
                 </div>
             </div>
             <!-- End Single Item -->
+            <div class="swiper-slide">
+                <div class="banner-thumb bg-cover" style="background: url(assets/img/banner/c3.jpg);">
+                </div>
+                <div class="container">
+                    <div class="content">
 
+                        <div class="row align">
+                            <div class="col-xl-7 col-lg-9">
+                                <div class="info">
+                                    <h2>Savor Every Bite & <br> Cherish the Moment</h2>
+                                    <p>
+                                        Crafting unforgettable flavors just for you
+                                    </p>
+                                    <div class="button mt-30">
+                                        <a class="btn btn-md btn-theme animation"
+                                            href="<?php echo base_url(); ?>">Explore Menu</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="banner-shap">
+                    <img src="assets/img/shape/12.png" alt="Image Not Found">
+                    <img src="assets/img/shape/13.png" alt="Image Not Found">
+                    <img src="assets/img/shape/14.png" alt="Image Not Found">
+                    <img src="assets/img/shape/15.png" alt="Image Not Found">
+                </div>
+            </div>
+
+
+            <div class="swiper-slide">
+                <div class="banner-thumb bg-cover" style="background: url(assets/img/banner/c4.jpg);">
+                </div>
+                <div class="container">
+                    <div class="content">
+
+                        <div class="row align">
+                            <div class="col-xl-7 col-lg-9">
+                                <div class="info">
+                                    <h2>Best Food & Wonderful <br> Eating Experience</h2>
+                                    <p>
+                                        Creating delicious premium menu
+                                    </p>
+                                    <div class="button mt-30">
+                                        <a class="btn btn-md btn-theme animation"
+                                            href="<?php echo base_url(); ?>">Explore Menu</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="banner-shap">
+                    <img src="assets/img/shape/12.png" alt="Image Not Found">
+                    <img src="assets/img/shape/13.png" alt="Image Not Found">
+                    <img src="assets/img/shape/14.png" alt="Image Not Found">
+                    <img src="assets/img/shape/15.png" alt="Image Not Found">
+                </div>
+            </div>
         </div>
 
         <!-- Navigation -->

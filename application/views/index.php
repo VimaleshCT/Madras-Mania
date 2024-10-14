@@ -11,7 +11,7 @@
 
             <!-- Single Item -->
             <div class="swiper-slide">
-                <div class="banner-thumb bg-cover" style="background: url(assets/img/banner/c1.jpg);">
+                <div class="banner-thumb bg-cover" style="background: url(assets/img/banner/c5.jpg);">
                 </div>
                 <div class="container">
                     <div class="content">
@@ -596,7 +596,7 @@
         <div class="row">
             <div class="col-lg-8 offset-lg-2">
                 <div class="site-heading text-center">
-                    <h4 style="color: #eabf33;">Buffet Menu</h4>
+                    <h4 style="color: #7f060f;padding: 30px;font-weight:600;">Buffet Menu</h4>
                     <h2 class="title">Explore our Menu by Day & Meal</h2>
                 </div>
             </div>
@@ -625,7 +625,7 @@
 
         <!-- Meal Selection (Initially hidden) -->
         <div id="meal-selection" class="row text-center" style="display: none;">
-            <h4 style="color: #eabf33;padding: 30px;">Select a Meal</h4>
+            <h4 style="color: #7f060f;padding: 30px;font-weight:600">Select a Meal</h4>
             <div class="col-lg-12 text-center">
                 <div class="row justify-content-center" id="meal-tabs">
                     <!-- Meals will be dynamically loaded here via AJAX -->
@@ -635,7 +635,7 @@
 
         <!-- Product List (Initially hidden) -->
         <div id="product-list-section" class="row text-center" style="display: none;">
-            <h4 style="color: #eabf33;">Available Products</h4>
+            <h4 style="color: #7f060f;padding: 30px;font-weight:600;">Available Products</h4>
             <div class="col-lg-12 text-center">
                 <div class="row" id="product-list">
                     <!-- Products will be dynamically loaded here via AJAX -->

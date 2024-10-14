@@ -160,8 +160,9 @@ div.big-deal-area .container-fluid {
 }
 
 .day-card.active {
-	border: 2px solid #eabf33;
-	box-shadow: 0 0 20px rgba(234, 191, 51, 0.8), 0 0 40px rgba(234, 191, 51, 0.5);
+	border: 2px solid #681f1f;
+	box-shadow: 0 0 20px rgb(101, 24, 24),
+		0 0 40px rgba(164, 33, 33, 0.5);
 	transform: scale(1.05); /* Slight scale effect */
 	background: linear-gradient(
 		45deg,
@@ -177,7 +178,7 @@ div.big-deal-area .container-fluid {
 			0 0 40px rgba(234, 191, 51, 0.5);
 	}
 	100% {
-		box-shadow: 0 0 30px rgba(255, 223, 0, 1), 0 0 60px rgba(255, 223, 0, 0.8);
+		box-shadow: 0 0 30px rgb(209, 208, 203), 0 0 60px rgba(207, 206, 200, 0.8);
 	}
 }
 
@@ -303,7 +304,7 @@ div.big-deal-area .container-fluid {
 	width: 100px;
 	height: 100px;
 	border-radius: 8px;
-	border: 2px solid #eabf33;
+	border: 2px solid #eae133;
 	background-size: cover;
 	background-position: center;
 }

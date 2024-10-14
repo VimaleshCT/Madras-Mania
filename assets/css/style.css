@@ -4390,7 +4390,6 @@ ul.card-info::after {
 	color: var(--white);
 	border-radius: 0;
 	margin: 0;
-	padding: 15px 30px;
 	text-transform: uppercase;
 	font-size: 17px;
 	border: none;

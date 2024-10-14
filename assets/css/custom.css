@@ -851,6 +851,7 @@ select {
 		white-space: nowrap;
 		width: 100%;
 		padding: 10px 0;
+		scroll-behavior: smooth;
 	}
 
 	.category-link {
@@ -883,7 +884,7 @@ select {
 		object-fit: cover;
 	}
 
-	/* Dropdown is hidden for desktop */
+	/* Hide the mobile dropdown on desktop */
 	.category-dropdown-wrapper {
 		display: none;
 	}
@@ -900,21 +901,22 @@ select {
 
 	.category-scroll {
 		display: flex;
-		overflow-x: auto;
+		overflow-x: auto; /* Enables horizontal scrolling */
 		white-space: nowrap;
+		scroll-behavior: smooth; /* Smooth scrolling */
 		width: 100%;
-		padding: 8px 0;
+		padding: 10px 0;
 	}
 
 	.category-link {
 		display: inline-block;
-		margin: 0 10px;
-		font-size: 1.1rem;
+		margin: 0 15px;
+		font-size: 1.2rem;
 		cursor: pointer;
 	}
 
 	.scroll-btn {
-		font-size: 1.8rem;
+		font-size: 2rem;
 		cursor: pointer;
 		user-select: none;
 	}
